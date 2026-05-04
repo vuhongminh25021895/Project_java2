@@ -1,4 +1,4 @@
-package com.javaproject.signin;
+package View;
 
 import javafx.application.Application;
 
