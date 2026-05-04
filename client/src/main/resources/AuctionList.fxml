@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.AuctionListController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox alignment="TOP_RIGHT" prefHeight="607.0" prefWidth="683.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.duandaugia.PrimaryController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <TextField alignment="TOP_CENTER" editable="false" prefHeight="47.0" prefWidth="643.0" text="Đấu Giá Sản Phẩm">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </TextField>
+      <HBox alignment="TOP_RIGHT" maxWidth="250.0" prefHeight="43.0" prefWidth="175.0">
+         <padding>
+            <Insets right="20.0" top="10.0" />
+         </padding>
+         <children>
+            <MenuButton mnemonicParsing="false" text="Hello,account1">
+            <items>
+               <MenuItem mnemonicParsing="false" text="thông tin tài khoản" />
+               <MenuItem mnemonicParsing="false" text="đăng xuất" />
+            </items>
+            </MenuButton>
+         </children>
+      </HBox>
+      <HBox maxWidth="700.0" prefHeight="36.0" prefWidth="330.0" spacing="15.0">
+         <children>
+            <Button mnemonicParsing="false" text="Đăng Sản Phẩm" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" text="Sản Phẩm Đấu Giá" />
+            <Button fx:id="btnTongQuanChart" mnemonicParsing="false" onAction="#handleViewGlobalChart" prefHeight="25.0" prefWidth="155.0" text="Xem Line Chart sản phẩm" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Nạp Tiền" />
+         </children>
+      </HBox>
+      <TableView fx:id="tableSanPhams" prefHeight="312.0" prefWidth="653.0">
+      <columns>
+         <TableColumn fx:id="colTen" prefWidth="51.33331620693207" text="Số" />
+         <TableColumn fx:id="colTenSanPham" prefWidth="104.66669082641602" text="Tên Sản Phẩm" />
+            <TableColumn fx:id="colMoTa" prefWidth="141.3332977294922" text="Mô Tả" />
+            <TableColumn fx:id="colGiaKhoiDiem" prefWidth="103.33331298828125" text="Giá Khởi Điểm" />
+            <TableColumn fx:id="colGiaCaoNhat" minWidth="0.0" prefWidth="93.33331298828125" text="Giá Cao Nhất" />
+            <TableColumn fx:id="colBatDau" maxWidth="221.999989827474" prefWidth="80.66671752929688" text="bắt đầu" />
+            <TableColumn fx:id="colKetThuc" maxWidth="67.33333333333337" prefWidth="67.33333333333337" text="kết thúc" />
+      </columns>
+      </TableView>
+      <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="53.0" prefWidth="643.0">
+         <children>
+            <TextField maxWidth="1.7976931348623157E308" promptText="Nhập giá (giá phải cao hơn giá hiện tại)....">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Button mnemonicParsing="false" text="gửi giá">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
