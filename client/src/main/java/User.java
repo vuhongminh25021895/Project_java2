@@ -1,4 +1,4 @@
-package com.javaproject.signin;
+package View;
 
 public class User {
     private String username;
