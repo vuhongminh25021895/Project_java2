@@ -1,4 +1,4 @@
-package com.javaproject.signin;
+package View;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
