@@ -7,7 +7,8 @@
 
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<VBox alignment="CENTER" fillWidth="false" prefHeight="544.0" prefWidth="685.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javaproject.signin.signUpController">
+<VBox alignment="CENTER" fillWidth="false" prefHeight="544.0" prefWidth="685.0" spacing="20.0" 
+xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.signUpController">
     <children>
         <Label text="SIGN UP">
             <font>
