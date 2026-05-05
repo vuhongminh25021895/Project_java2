@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<VBox alignment="CENTER" fillWidth="false" prefHeight="544.0" prefWidth="685.0" spacing="20.0" 
+xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.signUpController">
+    <children>
+        <Label text="SIGN UP">
+            <font>
+                <Font size="66.0" />
+            </font></Label>
+        <TextField fx:id="txtTenDangNhap" maxWidth="250.0" prefHeight="25.0" prefWidth="229.0" promptText="Tên Đăng Nhập" />
+        <PasswordField fx:id="passMatKhau" maxWidth="250.0" prefHeight="25.0" prefWidth="225.0" promptText="Mật Khẩu..." />
+        <PasswordField fx:id="passNhapLai" prefHeight="25.0" prefWidth="225.0" promptText="Nhập lại mật khẩu..." />
+        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="223.0" promptText="Nhập Email.." />
+        <TextField fx:id="txtSDT" prefHeight="25.0" prefWidth="218.0" promptText="Nhập SĐT..." />
+        <ChoiceBox fx:id="role" value="User">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="User" />
+                    <String fx:value="Seller" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Button mnemonicParsing="false" onAction="#signUp" text="sign up" />
+        <Button fx:id="secondaryButton" text="Quay Lại Trang Chính" />
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
