@@ -61,8 +61,6 @@
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
-                        </configuration>
-                        <configuration>
                             <mainClass>MainApp</mainClass>
                         </configuration>
                     </execution>
