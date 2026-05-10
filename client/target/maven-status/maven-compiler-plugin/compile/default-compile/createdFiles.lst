@@ -1,1 +1,13 @@
+Service\LoginService.class
+View\RegisterController.class
 AuctionApp.class
+View\AuctionListController.class
+View\LoginController.class
+StageManager\SwitchSceneControll.class
+StageManager\SceneManager.class
+Network\HttpClient.class
+Service\RegisterRespone.class
+StageManager\SceneName.class
+View\AlertBox.class
+StageManager\SwitchSceneControll$1.class
+Service\RegisterRequest.class

@@ -6,14 +6,30 @@ public class Art extends Item{
     private Artmedium medium;
     private boolean authenticated;
 
-    protected Art() {}
+    public Art() {}
 
-    protected Art(String name, String description, double startingPrice, String imageUrl, Seller seller, String artist, int year, Artmedium medium, boolean authenticated) {
+    public Art(String name, String description, double startingPrice, String imageUrl, Seller seller, String artist, int year, Artmedium medium, boolean authenticated) {
         super(name, description, startingPrice, imageUrl, seller);
         this.artist = artist;
         this.year = year;
         this.medium = medium;
         this.authenticated = authenticated;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setAuthenticated(boolean authenticated) {
+        this.authenticated = authenticated;
+    }
+
+    public void setMedium(Artmedium artmedium) {
+        this.medium = artmedium;
     }
 
     @Override
