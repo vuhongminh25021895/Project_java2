@@ -12,5 +12,4 @@ public class SceneManager {
         return primarystage;
     }
 
-
 }
