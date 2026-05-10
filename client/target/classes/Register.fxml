@@ -29,7 +29,7 @@
             <PasswordField fx:id="txtre_enterpassword" prefHeight="25.0" prefWidth="225.0" promptText="Nhập lại mật khẩu..." />
             <TextField fx:id="txtemail" prefHeight="25.0" prefWidth="223.0" promptText="Nhập Email.." />
             <TextField fx:id="txtphonenumber" prefHeight="25.0" prefWidth="218.0" promptText="Nhập SĐT..." />
-            <Button fx:id="signupbutton" mnemonicParsing="false" text="sign up" />
+            <Button fx:id="signupbutton" mnemonicParsing="false" onAction="#handleRegister" text="sign up" />
             <Button fx:id="secondaryButton"  text="Quay Lại Trang Chính" />
         </children>
         <padding>
