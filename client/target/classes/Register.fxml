@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="View.RegisterController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox alignment="CENTER" fillWidth="false" prefHeight="544.0" prefWidth="685.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" >
+        <children>
+            <Label text="SIGN UP">
+                <font>
+                    <Font size="66.0" />
+                </font></Label>
+            <TextField fx:id="txttendangnhap" maxWidth="250.0" prefHeight="25.0" prefWidth="229.0" promptText="Tên Đăng Nhập" />
+            <PasswordField fx:id="txtpassword" maxWidth="250.0" prefHeight="25.0" prefWidth="225.0" promptText="Mật Khẩu..." />
+            <PasswordField fx:id="txtre_enterpassword" prefHeight="25.0" prefWidth="225.0" promptText="Nhập lại mật khẩu..." />
+            <TextField fx:id="txtemail" prefHeight="25.0" prefWidth="223.0" promptText="Nhập Email.." />
+            <TextField fx:id="txtphonenumber" prefHeight="25.0" prefWidth="218.0" promptText="Nhập SĐT..." />
+            <Button fx:id="signupbutton" mnemonicParsing="false" text="sign up" />
+            <Button fx:id="secondaryButton"  text="Quay Lại Trang Chính" />
+        </children>
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+    </VBox>
+</AnchorPane>

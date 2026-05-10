@@ -1,0 +1,16 @@
+Model\Artmedium.class
+Model\AuctionStatus.class
+Model\Electronics.class
+Model\Art.class
+Model\Bidder.class
+Model\User.class
+Model\ItemCategory.class
+Model\UserRole.class
+Factory\ItemFactory.class
+Model\Seller.class
+Model\Entity.class
+Exception\InvalidBidException.class
+Model\Auction.class
+Model\BidTransaction.class
+Model\Vehicle.class
+Model\Item.class
