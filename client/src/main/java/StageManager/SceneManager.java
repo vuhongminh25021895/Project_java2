@@ -11,5 +11,4 @@ public class SceneManager {
     public static Stage getStage() {
         return primarystage;
     }
-
 }
