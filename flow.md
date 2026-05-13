@@ -61,7 +61,3 @@ Backend Boot Flow
 The backend starts from ServerApplication.java (line 1).
 Spring Boot exposes the REST API under /api/auth.
 The DAO uses the DB connection from DatabaseConnection to talk to MySQL.
-
-One important assumption: the users table must now contain a role column, because the old phone-based register flow is no longer used.
-
-If you want, I can also draw this as a simple flowchart.
