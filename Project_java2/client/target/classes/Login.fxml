@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="683.0" spacing="30.0" styleClass="main-color" stylesheets="@Decoration.css"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginController">
+    <children>
+        <Label prefHeight="91.0" prefWidth="470.0" text="WELCOME TO BIDDING WEBSITE" textAlignment="CENTER" textFill="#010d07" wrapText="true">
+            <font>
+                <Font size="32.0" />
+            </font>
+        </Label>
+
+        <VBox alignment="CENTER" spacing="20.0" maxWidth="400.0" styleClass="high-ground">
+            <children>
+                <TextField fx:id="txtUsername" maxHeight="30" maxWidth="300.0" prefHeight="30.0" prefWidth="300.0" promptText="Username" styleClass="rounded-input">
+                    <font>
+                        <Font name="Times New Roman Bold" size="11.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="txtPassword" maxHeight="30.0" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Password" styleClass="rounded-input">
+                    <font>
+                        <Font name="Times New Roman Bold" size="11.0" />
+                    </font>
+                </PasswordField>
+                <Button onAction="#handleSignIn" maxHeight="15.0" maxWidth="150.0" text="Sign In" textAlignment="CENTER"/>
+                <Button mnemonicParsing="false" text="Sign In (ADMIN)"/>
+                <HBox alignment="CENTER" prefHeight="89.0" prefWidth="643.0">
+                    <children>
+                        <Hyperlink onAction="#SwitchToSignUp" text="Don't have an account ?" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="40.0" left="20.0" right="20.0" top="40.0" />
+            </padding>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

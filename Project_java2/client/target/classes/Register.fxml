@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" fillWidth="false" prefHeight="544.0" prefWidth="685.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="View.RegisterController"
+      stylesheets="@Decoration.css" styleClass="main-color">
+    <children>
+        <Label text="SIGN UP">
+            <font>
+                <Font size="66.0" />
+            </font>
+        </Label>
+
+        <VBox alignment="CENTER" spacing="20.0" maxWidth="400.0" styleClass="high-ground">
+            <children>
+                <TextField fx:id="txtTenDangNhap" maxWidth="250.0" prefHeight="25.0" prefWidth="225.0" promptText="Username" VBox.vgrow="ALWAYS" styleClass="rounded-input">
+                    <font>
+                        <Font name="Times New Roman Bold" size="11.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="passMatKhau" maxWidth="250.0" prefHeight="25.0" prefWidth="225.0" promptText="Password" VBox.vgrow="ALWAYS" styleClass="rounded-input">
+                    <font>
+                        <Font name="Times New Roman Bold" size="11.0" />
+                    </font>
+                </PasswordField>
+                <Label fx:id="requirement" prefHeight="40.0" prefWidth="325.0" text="Password need to have at least 1 number and 1 letter. Password need to have at least 6 characters." textAlignment="CENTER" wrapText="true" />
+                <PasswordField fx:id="passNhapLai" prefHeight="25.0" prefWidth="225.0" promptText="Re-enter Password" styleClass="rounded-input">
+                    <font>
+                        <Font name="Times New Roman Bold" size="11.0" />
+                    </font>
+                </PasswordField>
+                <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="225.0" promptText="Email" styleClass="rounded-input">
+                    <font>
+                        <Font name="Times New Roman Bold" size="11.0" />
+                    </font>
+                </TextField>
+                <ChoiceBox fx:id="role" value="User">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="User" />
+                            <String fx:value="Seller" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Button mnemonicParsing="false" onAction="#signUp" text="Sign up" />
+                <Button onAction="#MainSceneSwitch" text="Return to main scene" />
+            </children>
+            <padding>
+                <Insets bottom="40.0" left="20.0" right="20.0" top="40.0" />
+            </padding>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
