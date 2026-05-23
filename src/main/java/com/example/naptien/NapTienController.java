@@ -14,10 +14,10 @@ public class NapTienController {
 
     @FXML
     private TextField txtSoTien;
+
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bidđing_database";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "";
-
     public boolean isDataValid() {
         String cash = txtSoTien.getText();
 
@@ -25,21 +25,12 @@ public class NapTienController {
             AlertBox.display("Vui lòng không để trống số tiền!");
             return false;
         }
+        cash = cash.trim().toUpperCase();
+        if (!cash.matches("\\d+[KM]?")) {
+            AlertBox.display("Định dạng không hợp lệ! Chỉ nhập số hoặc số kèm K/M (Ví dụ: 500K, 2M)");
+            return false;
+        }
 
-        if (cash.chars().anyMatch(ch -> !Character.isDigit(ch))) {
-            AlertBox.display("Không được chứa chữ cái hay ký tự đặc biệt!");
-            return false;
-        }
-        try {
-            int cash1 = Integer.parseInt(cash);
-            if (cash1 <= 0) {
-                AlertBox.display("Số tiền phải lớn hơn 0");
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            AlertBox.display("Dữ liệu không hợp lệ (Số quá lớn)!");
-            return false;
-        }
         return true;
     }
     public void bt1() { updateAmount(100000); }
@@ -48,20 +39,45 @@ public class NapTienController {
     public void bt4() { updateAmount(100000000); }
     private void updateAmount(int amountToAdd) {
         String currentText = txtSoTien.getText();
-        int currentCash = (currentText == null || currentText.isEmpty() || !currentText.matches("\\d+"))
-                ? 0 : Integer.parseInt(currentText);
+        int currentCash = 0;
+        if (currentText != null && !currentText.trim().isEmpty()) {
+            currentText = currentText.trim().toUpperCase();
+
+            if (currentText.matches("\\d+[KM]?")) {
+                currentCash = parseKMAmount(currentText);
+            }
+        }
         txtSoTien.setText(String.valueOf(currentCash + amountToAdd));
     }
+    private int parseKMAmount(String input) {
+        input = input.trim().toUpperCase();
+
+        if (input.endsWith("K")) {
+            String numberPart = input.substring(0, input.length() - 1);
+            return Integer.parseInt(numberPart) * 1000;
+        } else if (input.endsWith("M")) {
+            String numberPart = input.substring(0, input.length() - 1);
+            return Integer.parseInt(numberPart) * 1000000;
+        } else {
+            return Integer.parseInt(input);
+        }
+    }
+
     @FXML
     public void handleButtonNap() {
         if (!isDataValid()) {
             return;
         }
-        String cash = txtSoTien.getText();
-        int soTienNap = Integer.parseInt(cash);
+        String cashText = txtSoTien.getText();
         String username = "testuser";
-
         try {
+            int soTienNap = parseKMAmount(cashText);
+
+            if (soTienNap <= 0) {
+                AlertBox.display("Số tiền phải lớn hơn 0");
+                return;
+            }
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
 
@@ -80,13 +96,15 @@ public class NapTienController {
                             updateStmt.setString(2, username);
                             updateStmt.executeUpdate();
 
-                            AlertBox.display("Nạp tiền thành công trực tiếp vào XAMPP!");
+                            AlertBox.display("Nạp thành công " + soTienNap + " VNĐ vào XAMPP!");
                         }
                     } else {
                         AlertBox.display("Lỗi: Không tìm thấy tài khoản '" + username + "' trong DB!");
                     }
                 }
             }
+        } catch (NumberFormatException e) {
+            AlertBox.display("Số tiền vượt quá giới hạn xử lý hoặc sai cấu trúc số!");
         } catch (ClassNotFoundException e) {
             AlertBox.display("Thiếu thư viện Driver MySQL! Hãy nhấn Reload Maven Project.");
         } catch (Exception e) {
@@ -95,4 +113,3 @@ public class NapTienController {
         }
     }
 }
-
