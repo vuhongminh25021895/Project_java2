@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="CENTER" fillWidth="false" prefHeight="564.0" prefWidth="458.0" spacing="150.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.naptien.NapTienController">
+    <children>
+        <Label alignment="TOP_CENTER" prefHeight="85.0" prefWidth="627.0" text="Nạp Tiền">
+            <font>
+                <Font size="66.0" />
+            </font>
+        </Label>
+        <HBox prefHeight="53.0" prefWidth="536.0">
+            <children>
+                <TextField fx:id="txtSoTien" prefHeight="43.0" prefWidth="368.0" promptText="Nhập số tiền cần nạp...">
+                    <font>
+                        <Font name="System Italic" size="20.0" />
+                    </font>
+                </TextField>
+                <Button mnemonicParsing="false" onAction="#handleButtonNap" prefHeight="43.0" prefWidth="96.0" text="Nạp" />
+            </children>
+        </HBox>
+        <HBox prefHeight="85.0" prefWidth="412.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#bt1" prefHeight="38.0" prefWidth="111.0" text="100,000" />
+                <Button mnemonicParsing="false" onAction="#bt2" prefHeight="37.0" prefWidth="101.0" text="1,000,000" />
+                <Button mnemonicParsing="false" onAction="#bt3" prefHeight="37.0" prefWidth="103.0" text="10,000,000" />
+                <Button mnemonicParsing="false" onAction="#bt4" prefHeight="37.0" prefWidth="101.0" text="100,000,000" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
