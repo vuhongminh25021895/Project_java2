@@ -1,32 +1,44 @@
 package app.server.model;
 
-import app.shared.enums.ItemCategory;
+import app.server.enums.ItemCategory;
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item extends BaseEntity {
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, length = 2000)
     private String description;
-    private double startingPrice;
-    private String imageUrl;
-    @Enumerated(EnumType.STRING)
-    private ItemCategory category;
-    @ManyToOne
+
+    @Column(nullable = false, precision = 19, scale = 2)
+    private BigDecimal startingPrice;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
     private Seller seller;
 
     public Item() {}
 
-    protected Item(String name, String description, double startingPrice, String imageUrl, Seller seller) {
+    protected Item(String name, String description, BigDecimal startingPrice, Seller seller) {
         this.name = name;
         this.description = description;
         this.startingPrice = startingPrice;
-        this.imageUrl = imageUrl;
         this.seller = seller;
     }
 
+    public abstract ItemCategory getCategory();
+
     public void setSeller(Seller seller) {
         this.seller = seller;
+    }
+
+    public Seller getSeller() {
+        return seller;
     }
 
     public String getName() {
@@ -37,7 +49,7 @@ public abstract class Item extends BaseEntity {
         return description;
     }
 
-    public double getStartingPrice() {
+    public BigDecimal getStartingPrice() {
         return startingPrice;
     }
 
@@ -49,7 +61,7 @@ public abstract class Item extends BaseEntity {
         this.description = description;
     }
 
-    public void setStartingPrice(double startingPrice) {
+    public void setStartingPrice(BigDecimal startingPrice) {
         this.startingPrice = startingPrice;
     }
 }

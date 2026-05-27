@@ -1,38 +1,30 @@
 package app.server.model;
 
+import app.server.enums.UserRole;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Bidder extends User{
-    private double balance;
-    @ManyToOne
-    private List<Auction> watchlist;
-    @OneToMany(mappedBy = "bidder")
-    private List<BidTransaction> bidHistory;
+
+    @OneToMany(
+            mappedBy = "bidder",
+            fetch = FetchType.LAZY
+    )
+    private List<BidTransaction> bidHistory = new ArrayList<>();
 
     public Bidder() {}
 
-    public Bidder(String userName, String password, String email, String fullName) {
-        super(userName, password, email, fullName);
+    public Bidder(String userName, String password, String fullName) {
+        super(userName, password, fullName);
+        setRole(UserRole.BIDDER);
     }
 
-    public List<Auction> getWatchlist(){
-        return watchlist;
-    }
-
-    protected List<BidTransaction> getBidHistory(){
+    public List<BidTransaction> getBidHistory(){
         return bidHistory;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void reduce(double amount) {
-        balance -= amount;
     }
 }

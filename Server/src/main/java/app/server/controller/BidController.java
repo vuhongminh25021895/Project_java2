@@ -1,7 +1,7 @@
 package app.server.controller;
 
-import app.shared.dto.request.BidRequest;
-import app.shared.dto.response.BidResponse;
+import app.server.dto.request.BidRequest;
+import app.server.dto.response.BidResponse;
 import org.springframework.web.bind.annotation.*;
 import app.server.service.BidService;
 

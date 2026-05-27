@@ -7,21 +7,17 @@ import java.util.UUID;
 
 @MappedSuperclass
 public abstract class BaseEntity {
+
     @Id
+    @Column(nullable = false, updatable = false)
     private String id = UUID.randomUUID().toString();
 
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     @PrePersist
-    protected void onCreate() {
+    public void prePersist() {
         createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
     }
 
     public String getId() {
@@ -30,9 +26,5 @@ public abstract class BaseEntity {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
     }
 }

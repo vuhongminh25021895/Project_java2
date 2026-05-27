@@ -1,10 +1,13 @@
 package app.server.service;
 
+import app.server.enums.UserRole;
+import app.server.exception.AuctionClosedException;
 import app.server.model.BidTransaction;
 import app.server.model.Bidder;
 import app.server.repository.BidTransactionRepository;
-import app.shared.dto.request.BidRequest;
-import app.shared.dto.response.BidResponse;
+import app.server.dto.request.BidRequest;
+import app.server.dto.response.BidResponse;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import app.server.model.Auction;
 import app.server.model.User;
@@ -14,73 +17,77 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BidService {
+
     private final AuctionRepository auctionRepository;
 
     private final UserRepository userRepository;
 
     private final BidTransactionRepository bidTransactionRepository;
 
+    private final SimpMessagingTemplate messagingTemplate;
+
+    private final AuctionValidationService validationService;
+
+    private final AuctionEngine auctionEngine;
+
     public BidService(
             AuctionRepository auctionRepository,
             UserRepository userRepository,
-            BidTransactionRepository bidTransactionRepository
+            BidTransactionRepository bidTransactionRepository,
+            SimpMessagingTemplate messagingTemplate,
+            AuctionValidationService validationService,
+            AuctionEngine auctionEngine
     ) {
         this.auctionRepository = auctionRepository;
         this.userRepository = userRepository;
         this.bidTransactionRepository = bidTransactionRepository;
+        this.messagingTemplate = messagingTemplate;
+        this.validationService = validationService;
+        this.auctionEngine = auctionEngine;
     }
 
     @Transactional
     public BidResponse placeBid(BidRequest request) {
-        Auction auction =
-                auctionRepository
-                        .findByIdForUpdate(request.getAuctionId())
-                        .orElse(null);
 
-        if (auction == null) {
+        Auction auction = auctionRepository
+                .findByIdForUpdate(request.getAuctionId())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Auction not found")
+                );
 
-            return new BidResponse(
-                    false,
-                    "Auction not found",
-                    0,
-                    null
+        User user = userRepository
+                .findById(request.getBidderId())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("User not found")
+                );
+
+        if (user.getRole() != UserRole.BIDDER) {
+            throw new IllegalArgumentException(
+                    "User is not bidder"
             );
         }
 
-        User user =
-                userRepository
-                        .findById(request.getBidderId())
-                        .orElse(null);
+        Bidder bidder = (Bidder) user;
 
-        if (!(user instanceof Bidder bidder)) {
+        if (!auction.hasViewer(user)) {
 
-            return new BidResponse(
-                    false,
-                    "User is not a bidder",
-                    0,
-                    null
+            throw new IllegalArgumentException(
+                    "User has not joined auction"
             );
         }
 
         if (!auction.isRunning()) {
 
-            return new BidResponse(
-                    false,
-                    "Auction is not running",
-                    auction.getHighestBid(),
-                    auction.getHighestBidderId()
+            throw new AuctionClosedException(
+                    "Auction is not running"
             );
         }
 
-        if (request.getAmount() <= auction.getHighestBid()) {
-
-            return new BidResponse(
-                    false,
-                    "Bid amount too low",
-                    auction.getHighestBid(),
-                    auction.getHighestBidderId()
-            );
-        }
+        validationService.validateBid(
+                auction,
+                bidder,
+                request.getAmount()
+        );
 
         BidTransaction bid = new BidTransaction(
                 bidder,
@@ -88,17 +95,22 @@ public class BidService {
                 request.getAmount()
         );
 
-        auction.placeBid(bid);
+        auctionEngine.processBid(auction, bid);
 
         bidTransactionRepository.save(bid);
 
         auctionRepository.save(auction);
 
-        return new BidResponse(
-                true,
-                "Bid placed successfully",
-                auction.getHighestBid(),
+        BidResponse response = BidResponse.success(
+                auction.getCurrentPrice(),
                 auction.getHighestBidderId()
         );
+
+        messagingTemplate.convertAndSend(
+                "/topic/auction/" + auction.getId(),
+                response
+        );
+
+        return response;
     }
 }

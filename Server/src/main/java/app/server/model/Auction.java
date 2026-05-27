@@ -1,60 +1,102 @@
 package app.server.model;
 
-import app.shared.enums.AuctionStatus;
+import app.server.enums.AuctionStatus;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Auction extends BaseEntity {
-    @OneToOne
+
+    @Version
+    private Long version;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false)
     private Item item;
-    @ManyToOne
-    private Seller seller;
+
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private AuctionStatus auctionStatus;
-    @OneToMany(mappedBy = "auction")
-    private List<BidTransaction> bids = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "auction",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<BidTransaction> bidHistory = new ArrayList<>();
+
+    @Column(nullable = false)
     private LocalDateTime endTime;
+
+    @Column(nullable = false)
     private LocalDateTime startTime;
-    private double highestBid;
-    @ManyToOne
-    private Bidder highestBidder;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "highest_bid_id")
+    private BidTransaction highestBid;
+
+    @Transient
+    private Set<User> viewers = new HashSet<>();
 
     public Auction() {}
 
-    public Auction(Item item, Seller seller, LocalDateTime startTime, LocalDateTime endTime) {
+    public Auction(Item item, LocalDateTime startTime, LocalDateTime endTime) {
         this.item = item;
-        this.seller = seller;
         this.startTime = startTime;
         this.endTime = endTime;
 
         this.auctionStatus = AuctionStatus.OPEN;
-
-        this.highestBid = item.getStartingPrice();
     }
 
-    public synchronized void placeBid(BidTransaction bid) {
+    public void recordBid(BidTransaction bid) {
 
-        this.highestBid = bid.getAmount();
+        this.highestBid = bid;
 
-        this.highestBidder = bid.getBidder();
+        this.bidHistory.add(bid);
+    }
 
-        this.bids.add(bid);
+    public void extendAuctionSeconds(long seconds) {
+
+        this.endTime = this.endTime.plusSeconds(seconds);
+    }
+
+    public boolean isExpired() {
+
+        return LocalDateTime.now().isAfter(this.endTime);
     }
 
     public boolean isRunning() {
+
         return auctionStatus == AuctionStatus.RUNNING;
     }
 
-    public double getHighestBid() {
+    public BidTransaction getHighestBid() {
         return highestBid;
     }
 
+    public BigDecimal getCurrentPrice() {
+
+        if (highestBid == null) {
+            return item.getStartingPrice();
+        }
+
+        return highestBid.getBidAmount();
+    }
+
     public Bidder getHighestBidder() {
-        return highestBidder;
+
+        if (highestBid == null) {
+            return null;
+        }
+
+        return highestBid.getBidder();
     }
 
     public Item getItem() {
@@ -65,8 +107,14 @@ public class Auction extends BaseEntity {
         return auctionStatus;
     }
 
-    public List<BidTransaction> getBids() {
-        return bids;
+    public void setAuctionStatus(
+            AuctionStatus auctionStatus
+    ) {
+        this.auctionStatus = auctionStatus;
+    }
+
+    public List<BidTransaction> getBidHistory() {
+        return bidHistory;
     }
 
     public LocalDateTime getEndTime() {
@@ -78,6 +126,31 @@ public class Auction extends BaseEntity {
     }
 
     public String getHighestBidderId() {
-        return highestBidder != null ? highestBidder.getId() : null;
+
+        if (highestBid == null) {
+            return null;
+        }
+
+        return highestBid.getBidder().getId();
+    }
+
+    public void joinAuction(User user) {
+
+        viewers.add(user);
+    }
+
+    public void leaveAuction(User user) {
+
+        viewers.remove(user);
+    }
+
+    public boolean hasViewer(User user) {
+
+        return viewers.contains(user);
+    }
+
+    public int getViewerCount() {
+
+        return viewers.size();
     }
 }
