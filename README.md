@@ -1,13 +1,5 @@
-Project_java2
-Cách chạy:
-
-Có Xammp -> mở apache và mySQL
-Có database trên phpMyAdmin với tên Bidding_database
-Chạy ServerApplication
-Chạy Launcher
-
-Cách chạy nhiều laucher cùng lúc:
-+ Nhấp vào dấu mũi tên ở thanh trên ở gần nút run
-+ Edit Configuration
-+ Modify Option
-+ Allow multiple instances
+Thêm:
++ Hiện số tiền của người dùng trong AuctionList
++ Chống người bán có thể đặt bid cho sản phẩm của mình
++ Chống 1 người có thể đặt giá khi họ đang là người trả giá cao nhất
++ 
