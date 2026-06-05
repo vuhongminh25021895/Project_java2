@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="606.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.BiddingController">
+    <children>
+        <Text fx:id="lblTenSanPham" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên sản phẩm" wrappingWidth="555.4700508713722" />
+        <TextArea fx:id="txtMoTa" editable="false" prefHeight="57.0" prefWidth="560.0" promptText="Mô tả của sản phẩm" />
+      <LineChart fx:id="priceHistoryChart" animated="false" createSymbols="true" legendVisible="false" prefHeight="160.0" prefWidth="423.0">
+        <xAxis>
+          <CategoryAxis label="Time" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Price" side="LEFT" />
+        </yAxis>
+      </LineChart>
+        <Label fx:id="lblGiaHienTai" prefHeight="45.0" prefWidth="556.0" text="Giá hiện tại:" />
+      <Label fx:id="lblGiaChot" prefHeight="53.0" prefWidth="557.0" text="Giá chốt:" />
+      <Pane prefHeight="138.0" prefWidth="566.0">
+         <children>
+                <TextField fx:id="txtGiaMoi" layoutX="279.0" layoutY="11.0" prefHeight="34.0" prefWidth="231.0" promptText="Nhập giá mới..." />
+            <Label fx:id="lblGiaToiThieu" layoutX="63.0" layoutY="17.0" prefHeight="22.0" prefWidth="177.0" text="Giá nhỏ nhất = Giá hiện tại * 1.02" />
+            <Button fx:id="btnGiaToiThieu" layoutX="75.0" layoutY="57.0" mnemonicParsing="false" onAction="#sendMinimumBid" prefHeight="63.0" prefWidth="153.0" text="Đặt giá nhỏ nhất" />
+                <Button fx:id="btnDangGia" layoutX="331.0" layoutY="57.0" mnemonicParsing="false" onAction="#sendCustomBid" prefHeight="63.0" prefWidth="127.0" text="Đăng" />
+         </children>
+      </Pane>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
