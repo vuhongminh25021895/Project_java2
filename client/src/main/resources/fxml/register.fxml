@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane styleClass="main-color" fx:controller="View.RegisterController" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+
+        <VBox alignment="CENTER" fillWidth="false" prefHeight="544.0" prefWidth="685.0" spacing="20.0">
+
+            <children>
+
+                <!-- Title -->
+                <Label styleClass="title-label" text="Create Account">
+                    <font>
+                        <Font size="34" />
+                    </font>
+                </Label>
+
+                <!-- Card -->
+                <VBox alignment="CENTER" spacing="15" styleClass="high-ground">
+
+                    <padding>
+                        <Insets bottom="35" left="35" right="35" top="35" />
+                    </padding>
+
+                    <children>
+
+                        <Label fx:id="lblMessage"
+                               styleClass="success-label"
+                               visible="false"/>
+
+                        <TextField fx:id="txtFullName"
+                                   promptText="Full Name"
+                                   prefWidth="300"
+                                   styleClass="rounded-input"/>
+
+                        <TextField fx:id="txtTenDangNhap"
+                                   promptText="Username"
+                                   prefWidth="300"
+                                   styleClass="rounded-input"/>
+
+                        <TextField fx:id="txtEmail"
+                                   promptText="Email"
+                                   prefWidth="300"
+                                   styleClass="rounded-input"/>
+
+                        <PasswordField fx:id="passMatKhau"
+                                       promptText="Password"
+                                       prefWidth="300"
+                                       styleClass="rounded-input"/>
+
+                        <PasswordField fx:id="passNhapLai"
+                                       promptText="Confirm Password"
+                                       prefWidth="300"
+                                       styleClass="rounded-input"/>
+
+                        <ChoiceBox fx:id="role"
+                                   prefWidth="300"
+                                   value="User">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Bidder"/>
+                                    <String fx:value="Seller"/>
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+
+                        <Label fx:id="requirement"
+                               wrapText="true"
+                               maxWidth="300"
+                               textAlignment="CENTER"
+                               styleClass="info-label"
+                               text="Password must contain at least one letter, one number, and be at least 6 characters."/>
+
+                        <Button text="Create Account"
+                                prefWidth="300"
+                                onAction="#register"
+                                styleClass="primary-button"/>
+
+                        <Hyperlink text="Back to Login"
+                                   onAction="#Loginswitch"/>
+
+                    </children>
+
+                </VBox>
+
+            </children>
+
+        </VBox>
+
+    </children>
+
+</StackPane>

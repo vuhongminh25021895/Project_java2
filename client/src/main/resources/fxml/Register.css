@@ -1,0 +1,158 @@
+/* =========================
+   Background
+   ========================= */
+
+.main-color {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            #1e3c72,
+            #2a5298
+        );
+}
+
+/* =========================
+   Card
+   ========================= */
+
+.high-ground {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+
+    -fx-border-radius: 20;
+    -fx-border-color: #e5e7eb;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.18),
+        20,
+        0.2,
+        0,
+        5
+    );
+}
+
+/* =========================
+   Title
+   ========================= */
+
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}
+
+/* =========================
+   Input
+   ========================= */
+
+.rounded-input {
+
+    -fx-background-color: #f8fafc;
+
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1;
+
+    -fx-padding: 10 12 10 12;
+
+    -fx-font-size: 13px;
+}
+
+.rounded-input:focused {
+
+    -fx-border-color: #2563eb;
+    -fx-border-width: 2;
+
+    -fx-background-color: white;
+}
+
+/* =========================
+   ChoiceBox
+   ========================= */
+
+.choice-box {
+
+    -fx-background-color: #f8fafc;
+
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+
+    -fx-border-color: #d1d5db;
+    -fx-padding: 5;
+}
+
+.choice-box:focused {
+    -fx-border-color: #2563eb;
+}
+
+/* =========================
+   Main Button
+   ========================= */
+
+.primary-button {
+
+    -fx-background-color: #2563eb;
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 12;
+
+    -fx-pref-height: 42;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #1e40af;
+}
+
+/* =========================
+   Hyperlink
+   ========================= */
+
+.hyperlink {
+
+    -fx-text-fill: #2563eb;
+
+    -fx-border-color: transparent;
+
+    -fx-font-size: 13px;
+}
+
+.hyperlink:hover {
+    -fx-underline: true;
+}
+
+/* =========================
+   Requirement Label
+   ========================= */
+
+.info-label {
+
+    -fx-text-fill: #6b7280;
+
+    -fx-font-size: 11px;
+
+    -fx-alignment: center;
+}
+
+/* =========================
+   General Labels
+   ========================= */
+
+.label {
+    -fx-font-family: "Segoe UI";
+}
+
+.success-label {
+    -fx-text-fill: green;
+    -fx-font-weight: bold;
+}

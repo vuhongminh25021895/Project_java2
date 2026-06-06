@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="View.AuctionCardController"
+      prefWidth="280"
+      spacing="12"
+      stylesheets="auction_card.css">
+
+    <children>
+
+        <!-- Product Image -->
+
+        <StackPane prefHeight="180"
+                   styleClass="image-container">
+
+            <ImageView fx:id="productImage"
+                       fitWidth="240"
+                       fitHeight="160"
+                       preserveRatio="true"/>
+
+        </StackPane>
+
+        <!-- Category -->
+
+        <Label fx:id="categoryLabel"
+               styleClass="category-label"/>
+
+        <!-- Product Name -->
+
+        <Label fx:id="productNameLabel"
+               wrapText="true">
+
+            <font>
+                <Font size="17"/>
+            </font>
+
+        </Label>
+
+        <!-- Current Price -->
+
+        <VBox spacing="2">
+
+            <Label text="Giá hiện tại"
+                   styleClass="caption"/>
+
+            <Label fx:id="currentPriceLabel"
+                   styleClass="price-label"/>
+
+        </VBox>
+
+        <!-- Time -->
+
+        <VBox spacing="5">
+
+            <HBox spacing="5">
+
+                <Label text="⏱"/>
+
+                <Label fx:id="remainingTimeLabel"/>
+
+            </HBox>
+
+            <ProgressBar fx:id="timeProgress"
+                         progress="0.7"/>
+
+        </VBox>
+
+        <!-- Status -->
+
+        <HBox alignment="CENTER_LEFT">
+
+            <Label fx:id="statusLabel"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="bidCountLabel"/>
+
+        </HBox>
+
+        <!-- Button -->
+
+        <Button text="XEM CHI TIẾT"
+                maxWidth="Infinity"
+                prefHeight="40"
+                onAction="#viewDetails"/>
+
+    </children>
+
+    <padding>
+        <Insets top="15"
+                right="15"
+                bottom="15"
+                left="15"/>
+    </padding>
+
+</VBox>
