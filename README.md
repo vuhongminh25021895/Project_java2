@@ -1,4 +1,4 @@
-# Project_java2 - Auction List Realtime
+# Project_java2 - Auctioning App
 
 ## 1. Mo ta bai toan va pham vi he thong
 
