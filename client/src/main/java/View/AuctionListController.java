@@ -1,5 +1,6 @@
 package View;
 
+
 import Dto.Respone.AuctionCardRespone;
 import Service.AuctionService;
 import javafx.fxml.FXML;
@@ -41,6 +42,7 @@ public class AuctionListController {
             e.printStackTrace();
         }
     }
-
-
 }
+
+
+

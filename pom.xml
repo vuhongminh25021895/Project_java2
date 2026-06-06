@@ -32,11 +32,13 @@
         <log4j.version>2.24.0</log4j.version>
         <tilefx.version>21.0.9</tilefx.version>
 
+
         <maven.compiler.version>3.13.0</maven.compiler.version>
         <maven.assembly.version>3.7.1</maven.assembly.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+
 
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>

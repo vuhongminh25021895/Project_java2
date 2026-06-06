@@ -1,5 +1,6 @@
 package View;
 
+
 import Dto.Request.RegisterRequest;
 import Dto.Respone.AuthRespone;
 import Scene.SceneManager;
@@ -21,14 +22,22 @@ public class RegisterController {
     private final AuthService authService = new AuthService();
     private ClientSession clientSession = ClientSession.getInstance();
 
-    @FXML private TextField txtFullName;
-    @FXML private TextField txtTenDangNhap;
-    @FXML private TextField txtEmail;
-    @FXML private PasswordField passMatKhau;
-    @FXML private PasswordField passNhapLai;
-    @FXML private ChoiceBox<String> role;
-    @FXML private Label requirement;
-    @FXML private Label lblMessage;
+    @FXML
+    private TextField txtFullName;
+    @FXML
+    private TextField txtTenDangNhap;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private PasswordField passMatKhau;
+    @FXML
+    private PasswordField passNhapLai;
+    @FXML
+    private ChoiceBox<String> role;
+    @FXML
+    private Label requirement;
+    @FXML
+    private Label lblMessage;
 
     @FXML
     public void initialize() {

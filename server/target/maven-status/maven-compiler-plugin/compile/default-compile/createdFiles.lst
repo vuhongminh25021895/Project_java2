@@ -1,4 +1,6 @@
 Model\Artmedium.class
+Controller\RegisterController.class
+Dto\RegisterRespone.class
 Model\AuctionStatus.class
 Model\Electronics.class
 Model\Art.class
@@ -8,6 +10,9 @@ Model\ItemCategory.class
 Model\UserRole.class
 Factory\ItemFactory.class
 Model\Seller.class
+Dao\UserDao.class
+Database\DatabaseConnection.class
+Dto\RegisterRequest.class
 Model\Entity.class
 Exception\InvalidBidException.class
 Model\Auction.class

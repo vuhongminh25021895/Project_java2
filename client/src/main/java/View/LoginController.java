@@ -1,5 +1,6 @@
 package View;
 
+
 import Dto.Request.LoginRequest;
 import Dto.Respone.AuthRespone;
 import Scene.SceneManager;
@@ -20,9 +21,12 @@ public class LoginController {
     private final AuthService authService = new AuthService();
     private ClientSession clientSession = ClientSession.getInstance();
 
-    @FXML private TextField txtUsername;
-    @FXML private PasswordField txtPassword;
+    @FXML
+    private TextField txtUsername;
+    @FXML
+    private PasswordField txtPassword;
     private String username;
+
     @FXML
     public void handleLogIn(ActionEvent event) {
         String username = txtUsername.getText().trim();
@@ -39,10 +43,5 @@ public class LoginController {
 
         AlertBox.display(loginrespone.message());
         username = loginrespone.username();
-    }
-
-    @FXML
-    public void SwitchToSignUp(ActionEvent event) {
-            SceneManager.switchTo(SceneName.REGISTER);
     }
 }
