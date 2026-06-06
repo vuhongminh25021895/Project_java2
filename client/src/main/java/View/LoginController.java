@@ -1,5 +1,6 @@
 package View;
 
+
 import Dto.Request.LoginRequest;
 import Dto.Respone.AuthRespone;
 import Scene.SceneManager;
@@ -45,4 +46,7 @@ public class LoginController {
     public void SwitchToSignUp(ActionEvent event) {
             SceneManager.switchTo(SceneName.REGISTER);
     }
+=======
+public class LoginController {
+
 }

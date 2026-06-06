@@ -1,5 +1,6 @@
 package View;
 
+
 import Dto.Request.RegisterRequest;
 import Dto.Respone.AuthRespone;
 import Scene.SceneManager;
@@ -115,4 +116,7 @@ public class RegisterController {
             pause.play();
         }
     }
+=======
+public class RegisterController {
+
 }
