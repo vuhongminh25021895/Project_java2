@@ -42,8 +42,7 @@ public class AuctionListController {
             e.printStackTrace();
         }
     }
-
-
-=======
-public class AuctionListController {
 }
+
+
+
