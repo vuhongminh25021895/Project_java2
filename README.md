@@ -259,6 +259,9 @@ De chay nhieu client cung luc, mo them Terminal/PowerShell/CMD va chay lai lenh 
 - Kiem tra gia dat toi thieu theo quy tac lon hon gia hien tai 2%.
 - Chan admin dat gia, chan nguoi ban dat gia san pham cua chinh minh.
 - Hoan tien cho nguoi dang tra cao nhat khi co nguoi khac tra gia cao hon.
+
+## 7. Link
+https://drive.google.com/drive/folders/1sfORUvXd4X0TkX8wsCb5249m0fd729nR?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
 - Tu ket thuc phien dau gia khi dat gia mua dut hoac het thoi gian.
 - Gia han thoi gian dau gia them 5 phut neu co luot dat gia trong 15 phut cuoi.
 - Cap nhat gia, trang thai va so du realtime bang Server-Sent Events.
