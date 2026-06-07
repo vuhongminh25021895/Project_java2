@@ -13,7 +13,7 @@
         <module>Server</module>
         <module>Client</module>
     </modules>
-    <!--  ===== Inherit Spring Boot BOM for Server module =====  -->
+    <!--  =====  Inherit Spring Boot BOM for Server module =====  -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
