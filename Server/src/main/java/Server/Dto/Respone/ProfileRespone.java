@@ -3,7 +3,8 @@ package Server.Dto.Respone;
 import java.time.LocalDateTime;
 
 public record ProfileRespone(
-        Long userId,
+        boolean success,
+        String userId,
         String fullname,
         String username,
         String email,

@@ -1,7 +1,7 @@
 package View;
 
-import Dto.Respone.AuctionDetailRespone;
-import Dto.Respone.BidHistoryRespone;
+import Dto.Response.AuctionDetailResponse;
+import Dto.Response.BidHistoryResponse;
 import Scene.SceneManager;
 import Scene.SceneName;
 import Service.AuctionService;
@@ -30,13 +30,13 @@ public class AuctionDetailController {
 
     @FXML private TextArea descriptionArea;
 
-    @FXML private TableView<BidHistoryRespone> bidHistoryTable;
+    @FXML private TableView<BidHistoryResponse> bidHistoryTable;
 
-    @FXML private TableColumn<BidHistoryRespone, String> bidderColumn;
+    @FXML private TableColumn<BidHistoryResponse, String> bidderColumn;
 
-    @FXML private TableColumn<BidHistoryRespone, Double> amountColumn;
+    @FXML private TableColumn<BidHistoryResponse, Double> amountColumn;
 
-    @FXML private TableColumn<BidHistoryRespone, String> timeColumn;
+    @FXML private TableColumn<BidHistoryResponse, String> timeColumn;
 
     @FXML private Button bidButton;
 
@@ -46,7 +46,7 @@ public class AuctionDetailController {
 
     @FXML public void initialize() {
         loadAuctionData();
-        AuctionDetailRespone detailRespone = loadAuctionData();
+        AuctionDetailResponse detailRespone = loadAuctionData();
         statusLabel.setText(detailRespone.status());
         titleLabel.setText(detailRespone.title());
         currentPriceLabel.setText(String.valueOf(detailRespone.bidCount()));
@@ -65,9 +65,9 @@ public class AuctionDetailController {
         SceneManager.switchTo(SceneName.BIDDING, data);
     }
 
-    private AuctionDetailRespone loadAuctionData() {
+    private AuctionDetailResponse loadAuctionData() {
         String auctionid = SceneManager.getData("auctionid");
-        AuctionDetailRespone detailRespone = auctionService.getDetails(auctionid);
+        AuctionDetailResponse detailRespone = auctionService.getDetails(auctionid);
         if (auctionid == null) {
             AlertBox.display("Auction not found");
         }

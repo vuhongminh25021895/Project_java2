@@ -1,6 +1,7 @@
 package Server.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Setter
+@Getter
 @SuperBuilder
 public class Seller extends User{
     @OneToMany(

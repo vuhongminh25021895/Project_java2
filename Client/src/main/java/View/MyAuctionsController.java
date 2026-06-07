@@ -1,6 +1,6 @@
 package View;
 
-import Dto.Respone.AuctionCardRespone;
+import Dto.Response.AuctionCardResponse;
 import Scene.SceneManager;
 import Scene.SceneName;
 import Service.AuctionService;
@@ -26,14 +26,14 @@ public class MyAuctionsController {
     }
     public void loadAuctions() {
         String userId = SceneManager.getData("userId");
-        List<AuctionCardRespone> auctions = auctionService.getAllMyAuctions(userId);
+        List<AuctionCardResponse> auctions = auctionService.getAllMyAuctions(userId);
         auctionContainer.getChildren().clear();
-        for (AuctionCardRespone auction : auctions) {
+        for (AuctionCardResponse auction : auctions) {
             addCard(auction);
         }
     }
 
-    private void addCard(AuctionCardRespone auction) {
+    private void addCard(AuctionCardResponse auction) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/auctioncard.fxml"));
             VBox card = loader.load();

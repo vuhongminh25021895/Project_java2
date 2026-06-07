@@ -1,7 +1,7 @@
 package View;
 
 import Dto.Request.LoginRequest;
-import Dto.Respone.AuthRespone;
+import Dto.Response.AuthResponse;
 import Scene.SceneManager;
 import Scene.SceneName;
 import Service.AuthService;
@@ -34,7 +34,7 @@ public class LoginController {
         }
 
         LoginRequest request = new LoginRequest(username, password);
-        AuthRespone loginRespone = authService.login(request);
+        AuthResponse loginRespone = authService.login(request);
         if (loginRespone.success()) {
             clientSession.login(
                     loginRespone.token(),

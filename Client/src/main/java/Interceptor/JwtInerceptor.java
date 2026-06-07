@@ -18,7 +18,7 @@ public class JwtInerceptor implements Interceptor {
         }
 
         Request authenticated = original.newBuilder()
-                .header("Authorization", "Bearer" + token)
+                .header("Authorization", "Bearer " + token)
                 .build();
         return chain.proceed(authenticated);
     }

@@ -1,7 +1,7 @@
 package View;
 
 import Dto.Request.DepositRequest;
-import Dto.Respone.DepositRespone;
+import Dto.Response.DepositResponse;
 import Scene.SceneManager;
 import Scene.SceneName;
 import Service.DepositService;
@@ -71,7 +71,7 @@ public class DepositController {
         }
 
         DepositRequest request = new DepositRequest(amount);
-        DepositRespone respone = depositService.deposit(request);
+        DepositResponse respone = depositService.deposit(request);
         if (respone.success() == true) {
             txtSoTien.clear();
             String message = "Số dư mới" + respone.newBalance() + "VND";

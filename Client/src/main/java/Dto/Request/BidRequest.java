@@ -1,6 +1,10 @@
 package Dto.Request;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public record BidRequest (
         String auctionId,
-        Double price
+        BigDecimal amount,
+        LocalDateTime bidtime
 ) {}

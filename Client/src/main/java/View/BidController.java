@@ -1,7 +1,7 @@
 package View;
 
 import Dto.Request.BidRequest;
-import Dto.Respone.BidRespone;
+import Dto.Response.BidResponse;
 import Scene.SceneManager;
 import Service.BidService;
 import Service.TimeService;
@@ -26,7 +26,7 @@ public class BidController {
 
     public void initialize() {
         String auctionId = SceneManager.getData("auctionId");
-        BidRespone respone = bidService.getBidDetail(auctionId);
+        BidResponse respone = bidService.getBidDetail(auctionId);
         if (respone.success()) {
             currentPriceLabel.setText(String.valueOf(respone.highestBid()));
             String timeremain = TimeService.getRemainingTime(respone.endtime());
@@ -38,7 +38,7 @@ public class BidController {
     public void placeBid() {
         String auctionId = SceneManager.getData("auctionId");
         BidRequest bidRequest = new BidRequest(auctionId, Double.parseDouble(bidAmountField.getText()));
-        BidRespone respone = bidService.placebid(bidRequest);
+        BidResponse respone = bidService.placebid(bidRequest);
         if(respone.success()) {
             bidAmountField.setText(String.valueOf(respone.highestBid()));
         }

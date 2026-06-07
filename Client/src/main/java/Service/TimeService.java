@@ -2,8 +2,12 @@ package Service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TimeService {
+    private static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
     public static String getRemainingTime(
             LocalDateTime endTime
     ) {
@@ -45,5 +49,12 @@ public class TimeService {
                 minutes,
                 seconds
         );
+    }
+
+    public static String format(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return "";
+        }
+        return dateTime.format(FORMATTER);
     }
 }

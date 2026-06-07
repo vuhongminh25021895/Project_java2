@@ -1,7 +1,7 @@
 package View;
 
 import Dto.Request.RegisterRequest;
-import Dto.Respone.AuthRespone;
+import Dto.Response.AuthResponse;
 import Scene.SceneManager;
 import Scene.SceneName;
 import Service.AuthService;
@@ -102,7 +102,7 @@ public class RegisterController {
         }
 
         RegisterRequest registerRequest = new RegisterRequest(fullname, username, email, userRole, password);
-        AuthRespone registerRespone = authService.signup(registerRequest);
+        AuthResponse registerRespone = authService.signup(registerRequest);
 
         if (registerRespone.success()) {
             lblMessage.setText(registerRespone.message());
