@@ -24,9 +24,11 @@ jobs:
           cache: maven
 
       - name: Build and Test
+        working-directory: ./Project_java2        # ← FIX #2
         run: mvn clean package
 
       - name: Checkstyle and Jacoco
+        working-directory: ./Project_java2        # ← FIX #2
         run: mvn verify
 
       - name: Upload test report
@@ -34,13 +36,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results-${{ matrix.os }}
-          path: Project_java2/server/target/surefire-reports/
+          path: Project_java2/Server/target/surefire-reports/   # ← FIX #3
 
       - name: Upload Jacoco
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report-${{ matrix.os }}
-          path: Project_java2/server/target/site/jacoco/index.html
+          path: Project_java2/Server/target/site/jacoco/index.html  # ← FIX #3
 
       - name: Upload Checkstyle Report
         uses: actions/upload-artifact@v4
