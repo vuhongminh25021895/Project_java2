@@ -1,0 +1,983 @@
+Index: client/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>Client</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>26</maven.compiler.source>\r\n        <maven.compiler.target>26</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n    <dependencies>\r\n\r\n        <!-- OkHttp -->\r\n        <dependency>\r\n            <groupId>com.squareup.okhttp3</groupId>\r\n            <artifactId>okhttp</artifactId>\r\n            <version>4.12.0</version>\r\n        </dependency>\r\n\r\n        <!-- Jackson Databind -->\r\n        <dependency>\r\n            <groupId>com.fasterxml.jackson.core</groupId>\r\n            <artifactId>jackson-databind</artifactId>\r\n            <version>2.19.2</version>\r\n        </dependency>\r\n\r\n        <!-- JavaFX Controls -->\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-controls</artifactId>\r\n            <version>21</version>\r\n        </dependency>\r\n\r\n        <!-- JavaFX FXML -->\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-fxml</artifactId>\r\n            <version>21</version>\r\n        </dependency>\r\n\r\n        <!-- Gson -->\r\n        <dependency>\r\n            <groupId>com.google.code.gson</groupId>\r\n            <artifactId>gson</artifactId>\r\n            <version>2.10.1</version>\r\n        </dependency>\r\n\r\n    </dependencies>\r\n        <build>\r\n            <plugins>\r\n\r\n                <plugin>\r\n                    <groupId>org.apache.maven.plugins</groupId>\r\n                    <artifactId>maven-compiler-plugin</artifactId>\r\n                    <version>3.11.0</version>\r\n                    <configuration>\r\n                        <source>21</source>\r\n                        <target>21</target>\r\n                    </configuration>\r\n                </plugin>\r\n\r\n                <plugin>\r\n                    <groupId>org.openjfx</groupId>\r\n                    <artifactId>javafx-maven-plugin</artifactId>\r\n                    <version>0.0.8</version>\r\n                    <configuration>\r\n                        <mainClass>\r\n                            com.auction.MainApplication\r\n                        </mainClass>\r\n                    </configuration>\r\n                </plugin>\r\n\r\n            </plugins>\r\n        </build>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/pom.xml b/client/pom.xml
+--- a/client/pom.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/client/pom.xml	(date 1780806160885)
+@@ -1,81 +1,65 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+-
+     <groupId>org.example</groupId>
+     <artifactId>Client</artifactId>
+     <version>1.0-SNAPSHOT</version>
+-
+     <properties>
+         <maven.compiler.source>26</maven.compiler.source>
+         <maven.compiler.target>26</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+-
+     <dependencies>
+-
+-        <!-- OkHttp -->
++        <!--  OkHttp  -->
+         <dependency>
+             <groupId>com.squareup.okhttp3</groupId>
+             <artifactId>okhttp</artifactId>
+             <version>4.12.0</version>
+         </dependency>
+-
+-        <!-- Jackson Databind -->
++        <!--  Jackson Databind  -->
+         <dependency>
+             <groupId>com.fasterxml.jackson.core</groupId>
+             <artifactId>jackson-databind</artifactId>
+             <version>2.19.2</version>
+         </dependency>
+-
+-        <!-- JavaFX Controls -->
++        <!--  JavaFX Controls  -->
+         <dependency>
+             <groupId>org.openjfx</groupId>
+             <artifactId>javafx-controls</artifactId>
+             <version>21</version>
+         </dependency>
+-
+-        <!-- JavaFX FXML -->
++        <!--  JavaFX FXML  -->
+         <dependency>
+             <groupId>org.openjfx</groupId>
+             <artifactId>javafx-fxml</artifactId>
+             <version>21</version>
+         </dependency>
+-
+-        <!-- Gson -->
++        <!--  Gson  -->
+         <dependency>
+             <groupId>com.google.code.gson</groupId>
+             <artifactId>gson</artifactId>
+             <version>2.10.1</version>
+         </dependency>
+-
+     </dependencies>
+-        <build>
+-            <plugins>
+-
+-                <plugin>
+-                    <groupId>org.apache.maven.plugins</groupId>
+-                    <artifactId>maven-compiler-plugin</artifactId>
+-                    <version>3.11.0</version>
+-                    <configuration>
+-                        <source>21</source>
+-                        <target>21</target>
+-                    </configuration>
+-                </plugin>
+-
+-                <plugin>
+-                    <groupId>org.openjfx</groupId>
+-                    <artifactId>javafx-maven-plugin</artifactId>
+-                    <version>0.0.8</version>
+-                    <configuration>
+-                        <mainClass>
+-                            com.auction.MainApplication
+-                        </mainClass>
+-                    </configuration>
+-                </plugin>
+-
+-            </plugins>
+-        </build>
++    <build>
++        <plugins>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <version>3.11.0</version>
++                <configuration>
++                    <source>21</source>
++                    <target>21</target>
++                </configuration>
++            </plugin>
++            <plugin>
++                <groupId>org.openjfx</groupId>
++                <artifactId>javafx-maven-plugin</artifactId>
++                <version>0.0.8</version>
++                <configuration>
++                    <mainClass> com.auction.MainApplication </mainClass>
++                </configuration>
++            </plugin>
++        </plugins>
++    </build>
+ </project>
+\ No newline at end of file
+Index: server/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>Server</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>21</maven.compiler.source>\r\n        <maven.compiler.target>21</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n    <parent>\r\n        <groupId>org.springframework.boot</groupId>\r\n\r\n        <artifactId>\r\n            spring-boot-starter-parent\r\n        </artifactId>\r\n\r\n        <version>3.2.5</version>\r\n\r\n        <relativePath/>\r\n    </parent>\r\n\r\n    <dependencies>\r\n        <dependency>\r\n\r\n            <groupId>org.springframework.boot</groupId>\r\n\r\n            <artifactId>\r\n                spring-boot-starter-web\r\n            </artifactId>\r\n\r\n        </dependency>\r\n\r\n        <dependency>\r\n\r\n            <groupId>org.springframework.boot</groupId>\r\n\r\n            <artifactId>\r\n                spring-boot-starter-websocket\r\n            </artifactId>\r\n\r\n        </dependency>\r\n\r\n        <dependency>\r\n\r\n            <groupId>com.fasterxml.jackson.core</groupId>\r\n\r\n            <artifactId>\r\n                jackson-databind\r\n            </artifactId>\r\n\r\n        </dependency>\r\n\r\n        <dependency>\r\n\r\n            <groupId>org.springframework.boot</groupId>\r\n\r\n            <artifactId>\r\n                spring-boot-starter-test\r\n            </artifactId>\r\n\r\n            <scope>test</scope>\r\n\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-data-jpa</artifactId>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>com.mysql</groupId>\r\n            <artifactId>mysql-connector-j</artifactId>\r\n            <scope>runtime</scope>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.projectlombok</groupId>\r\n            <artifactId>lombok</artifactId>\r\n            <version>1.18.34</version> <!-- Có thể cập nhật version mới nhất -->\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-security</artifactId>\r\n            <version>3.2.5</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>io.jsonwebtoken</groupId>\r\n            <artifactId>jjwt-api</artifactId>\r\n            <version>0.12.5</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.jsonwebtoken</groupId>\r\n            <artifactId>jjwt-impl</artifactId>\r\n            <version>0.12.5</version>\r\n            <scope>runtime</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.jsonwebtoken</groupId>\r\n            <artifactId>jjwt-jackson</artifactId>\r\n            <version>0.12.5</version>\r\n            <scope>runtime</scope>\r\n        </dependency>\r\n\r\n\r\n    </dependencies>\r\n\r\n    <build>\r\n\r\n        <plugins>\r\n\r\n            <plugin>\r\n\r\n                <groupId>org.springframework.boot</groupId>\r\n\r\n                <artifactId>\r\n                    spring-boot-maven-plugin\r\n                </artifactId>\r\n\r\n\r\n            </plugin>\r\n\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-compiler-plugin</artifactId>\r\n                <version>3.11.0</version>\r\n\r\n                <configuration>\r\n                    <annotationProcessorPaths>\r\n                        <path>\r\n                            <groupId>org.projectlombok</groupId>\r\n                            <artifactId>lombok</artifactId>\r\n                            <version>1.18.38</version>\r\n                        </path>\r\n                    </annotationProcessorPaths>\r\n                </configuration>\r\n            </plugin>\r\n        </plugins>\r\n\r\n    </build>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/pom.xml b/server/pom.xml
+--- a/server/pom.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/server/pom.xml	(date 1780806222777)
+@@ -1,97 +1,58 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+-
+     <groupId>org.example</groupId>
+     <artifactId>Server</artifactId>
+     <version>1.0-SNAPSHOT</version>
+-
+     <properties>
+         <maven.compiler.source>21</maven.compiler.source>
+         <maven.compiler.target>21</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+-
+     <parent>
+         <groupId>org.springframework.boot</groupId>
+-
+-        <artifactId>
+-            spring-boot-starter-parent
+-        </artifactId>
+-
++        <artifactId> spring-boot-starter-parent </artifactId>
+         <version>3.2.5</version>
+-
+         <relativePath/>
+     </parent>
+-
+     <dependencies>
+         <dependency>
+-
+             <groupId>org.springframework.boot</groupId>
+-
+-            <artifactId>
+-                spring-boot-starter-web
+-            </artifactId>
+-
++            <artifactId> spring-boot-starter-web </artifactId>
+         </dependency>
+-
+         <dependency>
+-
+             <groupId>org.springframework.boot</groupId>
+-
+-            <artifactId>
+-                spring-boot-starter-websocket
+-            </artifactId>
+-
++            <artifactId> spring-boot-starter-websocket </artifactId>
+         </dependency>
+-
+         <dependency>
+-
+             <groupId>com.fasterxml.jackson.core</groupId>
+-
+-            <artifactId>
+-                jackson-databind
+-            </artifactId>
+-
++            <artifactId> jackson-databind </artifactId>
+         </dependency>
+-
+         <dependency>
+-
+             <groupId>org.springframework.boot</groupId>
+-
+-            <artifactId>
+-                spring-boot-starter-test
+-            </artifactId>
+-
++            <artifactId> spring-boot-starter-test </artifactId>
+             <scope>test</scope>
+-
+         </dependency>
+-
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-data-jpa</artifactId>
+         </dependency>
+-
+         <dependency>
+             <groupId>com.mysql</groupId>
+             <artifactId>mysql-connector-j</artifactId>
+             <scope>runtime</scope>
+         </dependency>
+-
+         <dependency>
+             <groupId>org.projectlombok</groupId>
+             <artifactId>lombok</artifactId>
+-            <version>1.18.34</version> <!-- Có thể cập nhật version mới nhất -->
++            <version>1.18.34</version>
++            <!--  Có thể cập nhật version mới nhất  -->
+         </dependency>
+-
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-security</artifactId>
+             <version>3.2.5</version>
+         </dependency>
+-
+         <dependency>
+             <groupId>io.jsonwebtoken</groupId>
+             <artifactId>jjwt-api</artifactId>
+@@ -109,30 +70,17 @@
+             <version>0.12.5</version>
+             <scope>runtime</scope>
+         </dependency>
+-
+-
+     </dependencies>
+-
+     <build>
+-
+         <plugins>
+-
+             <plugin>
+-
+                 <groupId>org.springframework.boot</groupId>
+-
+-                <artifactId>
+-                    spring-boot-maven-plugin
+-                </artifactId>
+-
+-
++                <artifactId> spring-boot-maven-plugin </artifactId>
+             </plugin>
+-
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.11.0</version>
+-
+                 <configuration>
+                     <annotationProcessorPaths>
+                         <path>
+@@ -144,7 +92,5 @@
+                 </configuration>
+             </plugin>
+         </plugins>
+-
+     </build>
+-
+ </project>
+\ No newline at end of file
+Index: .github/workflows/ci.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: CI — Build & Test\r\n\r\non:\r\n  push:\r\n    branches: [ main, develop ]\r\n  pull_request:\r\n    branches: [ main, develop ]\r\n\r\njobs:\r\n  build-and-test:\r\n    runs-on: ${{ matrix.os }}\r\n    strategy:\r\n      matrix:\r\n        os: [ ubuntu-latest, windows-latest, macos-latest ]\r\n\r\n    steps:\r\n      - uses: actions/checkout@v4\r\n\r\n      - name: Set up JDK 25\r\n        uses: actions/setup-java@v4\r\n        with:\r\n          java-version: '25'\r\n          distribution: 'temurin'\r\n          cache: maven\r\n\r\n      - name: Build and Test\r\n        run: mvn clean package\r\n\r\n      - name: Checkstyle and Jacoco\r\n        run: mvn verify\r\n\r\n      - name: Upload test report\r\n        if: always()\r\n        uses: actions/upload-artifact@v4\r\n        with:\r\n          name: test-results-${{ matrix.os }}\r\n          path: Project_java2/server/target/surefire-reports/\r\n\r\n      - name: Upload Jacoco\r\n        uses: actions/upload-artifact@v4\r\n        with:\r\n          name: jacoco-report-${{ matrix.os }}\r\n          path: Project_java2/server/target/site/jacoco/index.html\r\n\r\n      - name: Upload Checkstyle Report\r\n        uses: actions/upload-artifact@v4\r\n        with:\r\n          name: checkstyle-report\r\n          path: target/checkstyle/*\r\n          retention-days: 15
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+--- a/.github/workflows/ci.yml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/.github/workflows/ci.yml	(date 1780806275167)
+@@ -16,10 +16,10 @@
+     steps:
+       - uses: actions/checkout@v4
+ 
+-      - name: Set up JDK 25
++      - name: Set up JDK 21
+         uses: actions/setup-java@v4
+         with:
+-          java-version: '25'
++          java-version: '21'
+           distribution: 'temurin'
+           cache: maven
+ 
+Index: client/.gitignore
+===================================================================
+diff --git a/client/.gitignore b/client/.gitignore
+deleted file mode 100644
+--- a/client/.gitignore	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,39 +0,0 @@
+-target/
+-!.mvn/wrapper/maven-wrapper.jar
+-!**/src/main/**/target/
+-!**/src/test/**/target/
+-.kotlin
+-
+-### IntelliJ IDEA ###
+-.idea/modules.xml
+-.idea/jarRepositories.xml
+-.idea/compiler.xml
+-.idea/libraries/
+-*.iws
+-*.iml
+-*.ipr
+-
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
+-
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-build/
+-!**/src/main/**/build/
+-!**/src/test/**/build/
+-
+-### VS Code ###
+-.vscode/
+-
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
+Index: pom.xml
+===================================================================
+diff --git a/pom.xml b/pom.xml
+deleted file mode 100644
+--- a/pom.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,120 +0,0 @@
+-<project xmlns="http://maven.apache.org/POM/4.0.0">
+-    <modelVersion>4.0.0</modelVersion>
+-    <groupId>auction</groupId>
+-    <artifactId>auction</artifactId>
+-    <version>1.0-SNAPSHOT</version>
+-
+-    <packaging>pom</packaging>
+-
+-    <repositories>
+-        <repository>
+-            <id>central</id>
+-            <url>https://repo.maven.apache.org/maven2</url>
+-        </repository>
+-    </repositories>
+-
+-    <parent>
+-        <groupId>org.springframework.boot</groupId>
+-        <artifactId>spring-boot-starter-parent</artifactId>
+-        <version>3.2.0</version>
+-    </parent>
+-
+-
+-    <modules>
+-        <module>server</module>
+-        <module>client</module>
+-    </modules>
+-    <properties>
+-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+-
+-        <java.version>21</java.version>
+-        <log4j.version>2.24.0</log4j.version>
+-        <tilefx.version>21.0.9</tilefx.version>
+-
+-        <maven.compiler.version>3.13.0</maven.compiler.version>
+-        <maven.assembly.version>3.7.1</maven.assembly.version>
+-    </properties>
+-    <dependencyManagement>
+-        <dependencies>
+-
+-            <dependency>
+-                <groupId>org.apache.logging.log4j</groupId>
+-                <artifactId>log4j-core</artifactId>
+-                <version>${log4j.version}</version>
+-            </dependency>
+-            <dependency>
+-                <groupId>org.openfx</groupId>
+-                <artifactId>javafx-controls</artifactId>
+-                <version>${javafx.version}</version>
+-            </dependency>
+-
+-            <dependency>
+-                <groupId>org.springframework.boot</groupId>
+-                <artifactId>spring-boot-starter-web</artifactId>
+-                <version>3.2.5</version>
+-            </dependency>
+-
+-            <dependency>
+-                <groupId>com.fasterxml.jackson.core</groupId>
+-                <artifactId>jackson-databind</artifactId>
+-                <version>2.19.2</version>
+-                <type>pom</type>
+-            </dependency>
+-
+-            <dependency>
+-                <groupId>com.google.code.gson</groupId>
+-                <artifactId>gson</artifactId>
+-                <version>2.10.1</version>
+-            </dependency>
+-
+-        </dependencies>
+-
+-    </dependencyManagement>
+-    <build>
+-        <pluginManagement>
+-            <plugins>
+-
+-                <plugin>
+-                    <groupId>org.jacoco</groupId>
+-                    <artifactId>jacoco-maven-plugin</artifactId>
+-                    <version>0.8.12</version>
+-                </plugin>
+-
+-                <plugin>
+-                    <groupId>org.apache.maven.plugins</groupId>
+-                    <artifactId>maven-checkstyle-plugin</artifactId>
+-                    <version>3.3.1</version>
+-                    <configuration>
+-                        <configLocation>checkstyle.xml</configLocation>
+-                        <failsOnError>true</failsOnError>
+-                        <consoleOutput>true</consoleOutput>
+-                        <outputFile>${project.build.directory}/checkstyle/checkstyle-report.xml</outputFile>
+-                    </configuration>
+-                    <executions>
+-                        <execution>
+-                            <phase>validate</phase>
+-                            <goals><goal>check</goal></goals>
+-                        </execution>
+-                    </executions>
+-                </plugin>
+-
+-                <plugin>
+-                    <groupId>org.springframework.boot</groupId>
+-                    <artifactId>spring-boot-maven-plugin</artifactId>
+-                </plugin>
+-
+-                <plugin>
+-                    <groupId>org.apache.maven.plugins</groupId>
+-                    <artifactId>maven-surefire-plugin</artifactId>
+-                    <version>3.2.5</version>
+-
+-                    <configuration>
+-                        <forkedProcessTimeoutInSeconds>60</forkedProcessTimeoutInSeconds>
+-                    </configuration>
+-                </plugin>
+-            </plugins>
+-
+-        </pluginManagement>
+-    </build>
+-</project>
+\ No newline at end of file
+Index: server/target/maven-archiver/pom.properties
+===================================================================
+diff --git a/server/target/maven-archiver/pom.properties b/server/target/maven-archiver/pom.properties
+deleted file mode 100644
+--- a/server/target/maven-archiver/pom.properties	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,3 +0,0 @@
+-artifactId=Server
+-groupId=org.example
+-version=1.0-SNAPSHOT
+Index: client/.idea/encodings.xml
+===================================================================
+diff --git a/client/.idea/encodings.xml b/client/.idea/encodings.xml
+deleted file mode 100644
+--- a/client/.idea/encodings.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Encoding">
+-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: client/src/main/resources/auctionlist.fxml
+===================================================================
+diff --git a/client/src/main/resources/auctionlist.fxml b/client/src/main/resources/auctionlist.fxml
+deleted file mode 100644
+--- a/client/src/main/resources/auctionlist.fxml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,14 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import java.lang.*?>
+-<?import java.util.*?>
+-<?import javafx.scene.*?>
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="View.AuctionListController"
+-            prefHeight="400.0" prefWidth="600.0">
+-
+-</AnchorPane>
+Index: client/.idea/.gitignore
+===================================================================
+diff --git a/client/.idea/.gitignore b/client/.idea/.gitignore
+deleted file mode 100644
+--- a/client/.idea/.gitignore	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,10 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Ignored default folder with query files
+-/queries/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+Index: server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+===================================================================
+diff --git a/server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst b/server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+deleted file mode 100644
+--- a/server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,72 +0,0 @@
+-Server\Exception\AuctionAlreadyClosedException.class
+-Server\Service\AuctionValidationService.class
+-Server\Service\WalletService.class
+-Server\Model\BaseEntity.class
+-Server\Model\Electronics$ElectronicsBuilder.class
+-Server\Model\BaseEntity$BaseEntityBuilder.class
+-Server\Repository\UserRepository.class
+-Server\Service\AntiSnipingService.class
+-Server\Security\JwtAuthFilter.class
+-Server\Model\Vehicle$VehicleBuilderImpl.class
+-Server\ServerApplication.class
+-Server\Service\BidService.class
+-Server\Model\User.class
+-Server\Exception\UserNotFoundException.class
+-Server\Controller\BidController.class
+-Server\Model\Art$ArtBuilder.class
+-Server\Model\Item$ItemBuilder.class
+-Server\Dto\Respone\AuthRespone.class
+-Server\Dto\Respone\BidHistoryRespone.class
+-Server\Model\Auction$AuctionBuilderImpl.class
+-Server\Model\BidTransaction.class
+-Server\Model\Vehicle$VehicleBuilder.class
+-Server\Repository\ItemRepository.class
+-Server\Model\Electronics.class
+-Server\Exception\SelfBidException.class
+-Server\Model\Bidder$BidderBuilder.class
+-Server\Dto\Request\DepositRequest.class
+-Server\Model\Seller$SellerBuilderImpl.class
+-Server\Service\AuctionService.class
+-Server\Dto\Respone\BidRespone.class
+-Server\Dto\Request\LoginRequest.class
+-Server\Model\Item.class
+-Server\Dto\Request\BidRequest.class
+-Server\Model\Art$ArtBuilderImpl.class
+-Server\Model\Bidder.class
+-Server\Factory\ItemFactory$1.class
+-Server\Model\Bidder$BidderBuilderImpl.class
+-Server\Repository\AuctionRepository.class
+-Server\Model\Seller$SellerBuilder.class
+-Server\Service\AuctionEngine.class
+-Server\Dto\Respone\ProfileRespone.class
+-Server\Controller\AuthController.class
+-Server\Model\Auction$AuctionBuilder.class
+-Server\Model\User$UserBuilder.class
+-Server\Model\Vehicle.class
+-Server\Repository\BidTransactionRepository.class
+-Server\Dto\Respone\AuctionCardRespone.class
+-Server\Dto\Respone\AuctionDetailRespone.class
+-Server\Exception\AuctionNotfoundException.class
+-Server\Model\Art.class
+-Server\Model\Electronics$ElectronicsBuilderImpl.class
+-Server\Service\AuthService.class
+-Server\Model\Auction.class
+-Server\Enums\AuctionStatus.class
+-Server\Controller\AuctionController.class
+-Server\Security\SecurityConfig.class
+-Server\Model\Seller.class
+-Server\Controller\WalletController.class
+-Server\Exception\BidTooLowException.class
+-Server\Enums\ItemCategory.class
+-Server\Mapper\AuctionCardMapper.class
+-Server\Model\BidTransaction$BidTransactionBuilderImpl.class
+-Server\Service\TimeService.class
+-Server\Enums\UserRole.class
+-Server\Factory\ItemFactory.class
+-Server\Factory\UserFactory.class
+-Server\Exception\AuctionException.class
+-Server\Model\BidTransaction$BidTransactionBuilder.class
+-Server\Dto\Request\RegisterRequest.class
+-Server\Security\JwtService.class
+-Server\Config\WebsocketConfig.class
+-Server\Controller\ProfileController.class
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: client/.idea/misc.xml
+===================================================================
+diff --git a/client/.idea/misc.xml b/client/.idea/misc.xml
+deleted file mode 100644
+--- a/client/.idea/misc.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ /dev/null	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
+@@ -1,14 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_26" project-jdk-name="openjdk-26" project-jdk-type="JavaSDK">
+-    <output url="file://D:/laptrinhnangcao/Client" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"client\" />\r\n        <module name=\"server\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n  <component name=\"JavacSettings\">\r\n    <option name=\"ADDITIONAL_OPTIONS_OVERRIDE\">\r\n      <module name=\"client\" options=\"\" />\r\n      <module name=\"server\" options=\"-parameters\" />\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/.idea/compiler.xml	(date 1780806275317)
+@@ -2,14 +2,26 @@
+ <project version="4">
+   <component name="CompilerConfiguration">
+     <annotationProcessing>
++      <profile default="true" name="Default" enabled="true" />
+       <profile name="Maven default annotation processors profile" enabled="true">
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+         <module name="client" />
++      </profile>
++      <profile name="Annotation profile for Server" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <processorPath useClasspath="false">
++          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
++        </processorPath>
+         <module name="server" />
+       </profile>
+     </annotationProcessing>
++    <bytecodeTargetLevel>
++      <module name="auction" target="1.5" />
++    </bytecodeTargetLevel>
+   </component>
+   <component name="JavacSettings">
+     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+Index: server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>D:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Exception\\AuctionAlreadyClosedException.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\AuthService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\AntiSnipingService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Factory\\ItemFactory.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Respone\\BidHistoryRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Mapper\\AuctionCardMapper.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Exception\\SelfBidException.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Respone\\ProfileRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Enums\\UserRole.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Seller.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Exception\\BidTooLowException.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Enums\\AuctionStatus.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Bidder.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\BidTransaction.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Electronics.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Exception\\AuctionException.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Respone\\AuthRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Item.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\AuctionValidationService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\BidService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Art.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Controller\\WalletController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Controller\\ProfileController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Repository\\UserRepository.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Controller\\AuctionController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Repository\\ItemRepository.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Controller\\BidController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\BaseEntity.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\WalletService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Request\\BidRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Respone\\AuctionDetailRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Security\\JwtService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Request\\RegisterRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Respone\\BidRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Repository\\BidTransactionRepository.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\TimeService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Config\\WebsocketConfig.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Factory\\UserFactory.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\AuctionService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\User.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Repository\\AuctionRepository.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Request\\LoginRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Respone\\AuctionCardRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\ServerApplication.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Dto\\Request\\DepositRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Exception\\AuctionNotfoundException.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Exception\\UserNotFoundException.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Vehicle.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Service\\AuctionEngine.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Controller\\AuthController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Model\\Auction.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Security\\SecurityConfig.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Enums\\ItemCategory.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Server\\src\\main\\java\\Server\\Security\\JwtAuthFilter.java\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst b/server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+--- a/server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	(date 1780804841253)
+@@ -1,54 +1,54 @@
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Exception\AuctionAlreadyClosedException.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\AuthService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\AntiSnipingService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Factory\ItemFactory.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Respone\BidHistoryRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Mapper\AuctionCardMapper.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Exception\SelfBidException.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Respone\ProfileRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Enums\UserRole.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Seller.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Exception\BidTooLowException.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Enums\AuctionStatus.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Bidder.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\BidTransaction.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Electronics.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Exception\AuctionException.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Respone\AuthRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Item.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\AuctionValidationService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\BidService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Art.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Controller\WalletController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Controller\ProfileController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Repository\UserRepository.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Controller\AuctionController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Repository\ItemRepository.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Controller\BidController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\BaseEntity.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\WalletService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Request\BidRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Respone\AuctionDetailRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Security\JwtService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Request\RegisterRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Respone\BidRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Repository\BidTransactionRepository.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\TimeService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Config\WebsocketConfig.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Factory\UserFactory.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\AuctionService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\User.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Repository\AuctionRepository.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Request\LoginRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Respone\AuctionCardRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\ServerApplication.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Dto\Request\DepositRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Exception\AuctionNotfoundException.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Exception\UserNotFoundException.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Vehicle.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Service\AuctionEngine.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Controller\AuthController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Model\Auction.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Security\SecurityConfig.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Enums\ItemCategory.java
+-D:\laptrinhnangcao\Project1\Project_java2\Server\src\main\java\Server\Security\JwtAuthFilter.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Art.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\WalletService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Bidder.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Mapper\AuctionCardMapper.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Controller\ProfileController.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Vehicle.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Exception\AuctionAlreadyClosedException.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Repository\AuctionRepository.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\AntiSnipingService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Factory\ItemFactory.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Enums\AuctionStatus.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Request\RegisterRequest.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\AuthService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Exception\AuctionException.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Exception\AuctionNotfoundException.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Factory\UserFactory.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Respone\BidRespone.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\BidService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Item.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Request\LoginRequest.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Controller\BidController.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Electronics.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\User.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Auction.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Controller\WalletController.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Exception\SelfBidException.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Exception\UserNotFoundException.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Security\SecurityConfig.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\AuctionValidationService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Config\WebsocketConfig.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Exception\BidTooLowException.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Repository\UserRepository.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\BidTransaction.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Repository\ItemRepository.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Respone\AuthRespone.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Security\JwtService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Security\JwtAuthFilter.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Respone\BidHistoryRespone.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\Seller.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Controller\AuctionController.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\TimeService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Enums\UserRole.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\AuctionEngine.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Request\BidRequest.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\ServerApplication.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Request\DepositRequest.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Enums\ItemCategory.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Repository\BidTransactionRepository.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Service\AuctionService.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Respone\AuctionDetailRespone.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Respone\AuctionCardRespone.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Controller\AuthController.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Model\BaseEntity.java
++D:\laptrinhnangcao\Project2\Project_java2\Server\src\main\java\Server\Dto\Respone\ProfileRespone.java
+Index: client/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>View\\AuctionDetailController.class\r\nView\\RegisterController.class\r\nDto\\Request\\BidRequest.class\r\nDto\\Respone\\BidHistoryRespone.class\r\nService\\AuctionService$2.class\r\nDto\\Request\\RegisterRequest.class\r\nView\\BidController.class\r\nDto\\Respone\\BidRespone.class\r\nService\\BidService.class\r\nView\\DepositController.class\r\nView\\ProfileController.class\r\nConfig\\ApiConfig.class\r\nScene\\SceneName.class\r\nView\\LoginController.class\r\nDto\\Respone\\AuctionCardRespone.class\r\nDto\\Respone\\DepositRespone.class\r\nScene\\SceneManager.class\r\nService\\AuthService.class\r\nDto\\Respone\\AuthRespone.class\r\nView\\AuctionCardController.class\r\nAuctionApp.class\r\nView\\MyAuctionsController.class\r\nService\\TimeService.class\r\nUtil\\AlertBox.class\r\nNetwork\\HttpClientFactory.class\r\nSession\\ClientSession.class\r\nDto\\Respone\\AuctionRespone.class\r\nService\\AuctionService.class\r\nDto\\Request\\LoginRequest.class\r\nDto\\Respone\\ProfileRespone.class\r\nService\\ProfileService.class\r\nLauncher.class\r\nView\\AuctionListController.class\r\nService\\DepositService.class\r\nInterceptor\\JwtInerceptor.class\r\nService\\AuctionService$1.class\r\nService\\ItemPublishService.class\r\nDto\\Respone\\AuctionDetailRespone.class\r\nService\\BaseApiService.class\r\nDto\\Request\\DepositRequest.class\r\nConfig\\GsonConfig.class\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst b/client/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+--- a/client/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/client/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst	(date 1780655874585)
+@@ -1,41 +1,36 @@
+ View\AuctionDetailController.class
++Dto\Respone\AuthRespone.class
++View\AuctionCardController.class
+ View\RegisterController.class
++AuctionApp.class
+ Dto\Request\BidRequest.class
+ Dto\Respone\BidHistoryRespone.class
+-Service\AuctionService$2.class
+ Dto\Request\RegisterRequest.class
+ View\BidController.class
++Util\AlertBox.class
++Network\HttpClientFactory.class
+ Dto\Respone\BidRespone.class
+ Service\BidService.class
+ View\DepositController.class
+-View\ProfileController.class
+-Config\ApiConfig.class
+-Scene\SceneName.class
+-View\LoginController.class
+-Dto\Respone\AuctionCardRespone.class
+-Dto\Respone\DepositRespone.class
+-Scene\SceneManager.class
+-Service\AuthService.class
+-Dto\Respone\AuthRespone.class
+-View\AuctionCardController.class
+-AuctionApp.class
+-View\MyAuctionsController.class
+-Service\TimeService.class
+-Util\AlertBox.class
+-Network\HttpClientFactory.class
+ Session\ClientSession.class
+-Dto\Respone\AuctionRespone.class
+ Service\AuctionService.class
++View\ProfileController.class
+ Dto\Request\LoginRequest.class
++Config\ApiConfig.class
+ Dto\Respone\ProfileRespone.class
+ Service\ProfileService.class
+ Launcher.class
+ View\AuctionListController.class
++Scene\SceneName.class
++View\LoginController.class
+ Service\DepositService.class
+ Interceptor\JwtInerceptor.class
+ Service\AuctionService$1.class
+-Service\ItemPublishService.class
++Dto\Respone\AuctionCardRespone.class
+ Dto\Respone\AuctionDetailRespone.class
+ Service\BaseApiService.class
+ Dto\Request\DepositRequest.class
++Dto\Respone\DepositRespone.class
+ Config\GsonConfig.class
++Scene\SceneManager.class
++Service\AuthService.class
+Index: client/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>D:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\BidHistoryRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\DepositService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Session\\ClientSession.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\AuthRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Util\\AlertBox.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\BidRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\AuctionService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Network\\HttpClientFactory.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Request\\RegisterRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\MyAuctionsController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\DepositController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\ProfileController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Request\\BidRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\BidController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\AuthService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\AuctionCardRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Scene\\SceneManager.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Request\\LoginRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\DepositRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\BidService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\TimeService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\AuctionApp.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Config\\GsonConfig.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Scene\\SceneName.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\AuctionDetailRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\LoginController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\RegisterController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Request\\DepositRequest.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Interceptor\\JwtInerceptor.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\ProfileRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\ItemPublishService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\ProfileService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Config\\ApiConfig.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Service\\BaseApiService.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\AuctionListController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\AuctionCardController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\View\\AuctionDetailController.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Dto\\Respone\\AuctionRespone.java\r\nD:\\laptrinhnangcao\\Project1\\Project_java2\\Client\\src\\main\\java\\Launcher.java\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst b/client/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+--- a/client/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/client/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	(date 1780655873210)
+@@ -1,39 +1,35 @@
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\BidHistoryRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\DepositService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Session\ClientSession.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\AuthRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Util\AlertBox.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\BidRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\AuctionService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Network\HttpClientFactory.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Request\RegisterRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\MyAuctionsController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\DepositController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\ProfileController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Request\BidRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\BidController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\AuthService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\AuctionCardRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Scene\SceneManager.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Request\LoginRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\DepositRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\BidService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\TimeService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\AuctionApp.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Config\GsonConfig.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Scene\SceneName.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\AuctionDetailRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\LoginController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\RegisterController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Request\DepositRequest.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Interceptor\JwtInerceptor.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\ProfileRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\ItemPublishService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\ProfileService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Config\ApiConfig.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Service\BaseApiService.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\AuctionListController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\AuctionCardController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\View\AuctionDetailController.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Dto\Respone\AuctionRespone.java
+-D:\laptrinhnangcao\Project1\Project_java2\Client\src\main\java\Launcher.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\LoginController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Config\ApiConfig.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Service\BidService.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\AuctionCardController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Network\HttpClientFactory.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Util\AlertBox.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\BidController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Scene\SceneName.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Request\BidRequest.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Scene\SceneManager.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\RegisterController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\AuctionDetailController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Request\DepositRequest.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Service\AuthService.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Service\DepositService.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Launcher.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\DepositRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Service\AuctionService.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\BidRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\AuctionDetailRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Request\RegisterRequest.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Service\BaseApiService.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Session\ClientSession.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\ProfileRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\AuthRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Service\ProfileService.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\BidHistoryRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\ProfileController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\DepositController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\View\AuctionListController.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Config\GsonConfig.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Interceptor\JwtInerceptor.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\AuctionApp.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Respone\AuctionCardRespone.java
++C:\Users\Minh\IdeaProjects\Client\src\main\java\Dto\Request\LoginRequest.java
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/client/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/server/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" default=\"true\" project-jdk-name=\"25\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision b22f2e06279df14644cdb7728db0ce71535a9d6e)
++++ b/.idea/misc.xml	(date 1780804993984)
+@@ -10,7 +10,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" default="true" project-jdk-name="25" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21_PREVIEW" project-jdk-name="ms-21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
