@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="View.BidController">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <top>
+        <HBox spacing="10">
+
+            <Button fx:id="backButton"
+                    text="← Back"/>
+
+            <Label text="Place Bid"
+                   style="-fx-font-size:20px;
+                          -fx-font-weight:bold;"/>
+
+        </HBox>
+    </top>
+
+    <center>
+
+        <VBox spacing="15">
+
+            <GridPane hgap="20" vgap="10">
+
+                <Label text="Current Price:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <Label fx:id="currentPriceLabel"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="1"/>
+
+                <Label text="Time Remaining:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <Label fx:id="countdownLabel"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <Separator/>
+
+            <HBox spacing="10">
+
+                <TextField fx:id="bidAmountField"
+                           promptText="Enter bid amount"
+                           HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="placeBidButton"
+                        text="Place Bid"
+                        onAction="#placeBid"/>
+
+            </HBox>
+
+            <Separator/>
+
+            <Label text="Recent Bids"
+                   style="-fx-font-size:16px;
+                          -fx-font-weight:bold;"/>
+
+            <TableView fx:id="bidTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="bidderColumn"
+                                 text="Bidder"
+                                 prefWidth="250"/>
+
+                    <TableColumn fx:id="amountColumn"
+                                 text="Amount"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="timeColumn"
+                                 text="Time"
+                                 prefWidth="250"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

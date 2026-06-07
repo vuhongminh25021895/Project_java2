@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="View.MyAuctionsController"
+            stylesheets="@MyAuctions.css">
+
+    <!-- HEADER -->
+
+    <top>
+        <VBox spacing="15"
+              styleClass="top-container">
+
+            <padding>
+                <Insets top="20"
+                        right="20"
+                        bottom="20"
+                        left="20"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="15">
+
+                <Button text="← Quay lại"
+                        styleClass="back-button"
+                        onAction="#back"/>
+
+                <Label text="PHIÊN ĐẤU GIÁ ĐÃ THAM GIA"
+                       styleClass="page-title"/>
+
+            </HBox>
+
+            <HBox spacing="10">
+
+                <Button text="Tất cả"
+                        styleClass="filter-button"/>
+
+                <Button text="Đang diễn ra"
+                        styleClass="filter-button"/>
+
+                <Button text="Đang dẫn đầu"
+                        styleClass="filter-button"/>
+
+                <Button text="Đã kết thúc"
+                        styleClass="filter-button"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <TextField fx:id="searchField"
+                           promptText="Tìm kiếm phiên đấu giá..."
+                           prefWidth="250"/>
+
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <!-- CONTENT -->
+
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER">
+
+            <content>
+
+                <FlowPane fx:id="auctionContainer"
+                          hgap="20"
+                          vgap="20"
+                          prefWrapLength="1200">
+
+                    <padding>
+                        <Insets top="20"
+                                right="20"
+                                bottom="20"
+                                left="20"/>
+                    </padding>
+
+                </FlowPane>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

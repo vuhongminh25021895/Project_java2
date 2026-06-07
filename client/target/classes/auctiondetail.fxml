@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="View.AuctionDetailController"
+
+>
+    <!-- HEADER -->
+    <top>
+        <VBox spacing="10" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label fx:id="titleLabel"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <Label fx:id="statusLabel"
+                   style="-fx-text-fill: green; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <!-- CONTENT -->
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Current Price -->
+            <HBox spacing="15">
+                <Label text="Current Price:"/>
+                <Label fx:id="currentPriceLabel"
+                       style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+            </HBox>
+
+            <!-- Bid Count -->
+            <HBox spacing="15">
+                <Label text="Total Bids:"/>
+                <Label fx:id="bidCountLabel"/>
+            </HBox>
+
+            <!-- Seller -->
+            <HBox spacing="15">
+                <Label text="Seller:"/>
+                <Label fx:id="sellerLabel"/>
+            </HBox>
+
+            <!-- Start Time -->
+            <HBox spacing="15">
+                <Label text="Start Time:"/>
+                <Label fx:id="startTimeLabel"/>
+            </HBox>
+
+            <!-- End Time -->
+            <HBox spacing="15">
+                <Label text="End Time:"/>
+                <Label fx:id="endTimeLabel"/>
+            </HBox>
+
+            <!-- Description -->
+            <VBox spacing="10">
+                <Label text="Description"
+                       style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+                <TextArea fx:id="descriptionArea"
+                          editable="false"
+                          wrapText="true"
+                          prefHeight="180"/>
+            </VBox>
+
+            <!-- Bid History -->
+            <VBox spacing="10">
+                <Label text="Recent Bids"
+                       style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+                <TableView fx:id="bidHistoryTable"
+                           prefHeight="250">
+
+                    <columns>
+                        <TableColumn fx:id="bidderColumn"
+                                     text="Bidder"
+                                     prefWidth="200"/>
+
+                        <TableColumn fx:id="amountColumn"
+                                     text="Amount"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="timeColumn"
+                                     text="Time"
+                                     prefWidth="250"/>
+                    </columns>
+
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- FOOTER -->
+    <bottom>
+        <VBox spacing="10" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+            <Button fx:id="bidButton"
+                    text="Place Bid"
+                    onAction="#openBidScene"/>
+            <Label fx:id="messageLabel"
+                   style="-fx-text-fill:red;"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

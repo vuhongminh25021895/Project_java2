@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="View.LoginController"
+           stylesheets="@Login.css">
+
+    <children>
+
+        <VBox alignment="CENTER"
+              spacing="25"
+              maxWidth="450"
+              styleClass="login-card">
+
+            <children>
+
+                <!-- Title -->
+                <VBox alignment="CENTER" spacing="8">
+                    <children>
+                        <Label text="🏆 Online Auction"
+                               styleClass="title-label"/>
+
+                        <Label text="Sign in to continue bidding"
+                               styleClass="subtitle-label"/>
+                    </children>
+                </VBox>
+
+                <!-- Form -->
+                <VBox alignment="CENTER"
+                      spacing="15">
+
+                    <TextField fx:id="txtUsername"
+                               promptText="Username"
+                               prefWidth="320"
+                               prefHeight="40"
+                               styleClass="input-field"/>
+
+                    <PasswordField fx:id="txtPassword"
+                                   promptText="Password"
+                                   prefWidth="320"
+                                   prefHeight="40"
+                                   styleClass="input-field"/>
+
+                    <!-- Error Message -->
+                    <Label fx:id="lblMessage"
+                           textFill="red"
+                           visible="false"/>
+
+                    <Button text="Sign In"
+                            onAction="#handleLogIn"
+                            prefWidth="320"
+                            prefHeight="40"
+                            styleClass="primary-button"/>
+
+                    <Button text="Admin Login"
+                            prefWidth="320"
+                            prefHeight="40"
+                            styleClass="secondary-button"/>
+
+                </VBox>
+
+                <!-- Footer -->
+                <HBox alignment="CENTER">
+                    <children>
+                        <Label text="New user? "/>
+                        <Hyperlink text="Create an account"
+                                   onAction="#SwitchToSignUp"/>
+                    </children>
+                </HBox>
+
+            </children>
+
+            <padding>
+                <Insets top="40"
+                        right="40"
+                        bottom="40"
+                        left="40"/>
+            </padding>
+
+        </VBox>
+
+    </children>
+
+</StackPane>
