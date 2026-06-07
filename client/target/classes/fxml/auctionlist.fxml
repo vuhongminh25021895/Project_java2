@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="View.AuctionListController"
+            stylesheets="@auction_list.css">
+
+    <!-- HEADER -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="10"
+              styleClass="top-bar">
+
+            <padding>
+                <Insets top="20"
+                        right="20"
+                        bottom="20"
+                        left="20"/>
+            </padding>
+
+            <Label text="ĐẤU GIÁ SẢN PHẨM"
+                   styleClass="page-title">
+                <font>
+                    <Font size="28"/>
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <TextField fx:id="searchField"
+                       promptText="Tìm kiếm sản phẩm..."
+                       prefWidth="250"/>
+
+            <ComboBox fx:id="categoryFilter"
+                      promptText="Danh mục"
+                      prefWidth="150"/>
+
+            <ComboBox fx:id="statusFilter"
+                      promptText="Trạng thái"
+                      prefWidth="150"/>
+
+            <Button text="Tìm"
+                    onAction="#searchAuction"/>
+        </HBox>
+    </top>
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox spacing="15"
+              prefWidth="240"
+              styleClass="sidebar">
+
+            <padding>
+                <Insets top="20"
+                        right="15"
+                        bottom="20"
+                        left="15"/>
+            </padding>
+
+            <!-- USER -->
+            <Label fx:id="helloName"
+                   text="Hello, Guest"
+                   styleClass="user-label"/>
+
+            <Separator/>
+
+            <!-- MENU -->
+
+            <Button text="Thông tin cá nhân"
+                    styleClass="sidebar-button"
+                    maxWidth="Infinity"
+                    onAction="#profileSwitch"/>
+
+            <Button text="Phiên đấu giá đã tham gia"
+                    styleClass="sidebar-button"
+                    maxWidth="Infinity"
+                    onAction="#myAuctionSwitch"/>
+
+            <Button text="Nạp tiền"
+                    styleClass="sidebar-button"
+                    maxWidth="Infinity"
+                    onAction="#walletSwitch"/>
+
+            <Button text="Đăng sản phẩm"
+                    styleClass="sidebar-button"
+                    maxWidth="Infinity"
+                    onAction="#productPublishingSwitch"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- LOGOUT -->
+
+            <Button text="Đăng xuất"
+                    styleClass="logout-button"
+                    maxWidth="Infinity"
+                    onAction="#logout"/>
+
+        </VBox>
+    </left>
+
+    <!-- AUCTION LIST -->
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED">
+
+            <content>
+
+                <FlowPane fx:id="auctionContainer"
+                          hgap="20"
+                          vgap="20"
+                          prefWrapLength="1000">
+
+                    <padding>
+                        <Insets top="20"
+                                right="20"
+                                bottom="20"
+                                left="20"/>
+                    </padding>
+
+                </FlowPane>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

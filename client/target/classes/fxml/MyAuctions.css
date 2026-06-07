@@ -1,0 +1,224 @@
+/* =====================================
+   ROOT
+   ===================================== */
+
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #F4F8FC;
+}
+
+/* =====================================
+   HEADER
+   ===================================== */
+
+.top-container {
+    -fx-background-color: white;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 0 0 1 0;
+}
+.back-button {
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: #2563EB;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-border-color: #2563EB;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
+}
+
+/* =====================================
+   FILTER BUTTON
+   ===================================== */
+
+.filter-button {
+
+    -fx-background-color: white;
+
+    -fx-border-color: #3B82F6;
+    -fx-border-radius: 8;
+
+    -fx-background-radius: 8;
+
+    -fx-text-fill: #2563EB;
+
+    -fx-font-weight: bold;
+
+    -fx-cursor: hand;
+}
+
+.filter-button:hover {
+
+    -fx-background-color: #3B82F6;
+    -fx-text-fill: white;
+}
+
+/* =====================================
+   INPUT
+   ===================================== */
+
+.text-field {
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+
+    -fx-border-color: #CBD5E1;
+
+    -fx-padding: 8;
+}
+
+.text-field:focused {
+
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 2;
+}
+
+/* =====================================
+   SCROLLPANE
+   ===================================== */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* =====================================
+   FLOWPANE
+   ===================================== */
+
+.flow-pane {
+    -fx-background-color: transparent;
+}
+
+/* =====================================
+   AUCTION CARD
+   ===================================== */
+
+.joined-auction-card {
+
+    -fx-pref-width: 320;
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+
+    -fx-border-color: #E2E8F0;
+
+    -fx-padding: 15;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.08),
+        12,
+        0,
+        0,
+        2
+    );
+}
+
+.joined-auction-card:hover {
+
+    -fx-border-color: #60A5FA;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(59,130,246,0.2),
+        16,
+        0,
+        0,
+        3
+    );
+}
+
+/* =====================================
+   CARD TITLE
+   ===================================== */
+
+.card-title {
+
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #1E293B;
+}
+
+/* =====================================
+   CURRENT PRICE
+   ===================================== */
+
+.card-price {
+
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+/* =====================================
+   MY BID
+   ===================================== */
+
+.card-my-bid {
+
+    -fx-text-fill: #475569;
+}
+
+/* =====================================
+   STATUS
+   ===================================== */
+
+.status-leading {
+
+    -fx-text-fill: #10B981;
+    -fx-font-weight: bold;
+}
+
+.status-outbid {
+
+    -fx-text-fill: #EF4444;
+    -fx-font-weight: bold;
+}
+
+.status-ended {
+
+    -fx-text-fill: #64748B;
+    -fx-font-weight: bold;
+}
+
+/* =====================================
+   DETAIL BUTTON
+   ===================================== */
+
+.detail-button {
+
+    -fx-background-color: #2563EB;
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8;
+}
+
+.detail-button:hover {
+
+    -fx-background-color: #1D4ED8;
+}

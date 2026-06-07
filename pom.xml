@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <name>Auction Parent POM</name>
     <description>Parent POM – CI only (dependency versions + build plugins)</description>
-    <!--  ===== Child Modules =====  -->
+    <!--  =====Modules =====  -->
     <modules>
         <module>Server</module>
         <module>Client</module>

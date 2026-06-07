@@ -1,0 +1,230 @@
+/* =================================
+   ROOT
+   ================================= */
+
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #F4F8FC;
+}
+
+/* =================================
+   HEADER
+   ================================= */
+
+.top-bar {
+    -fx-background-color: white;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.page-title {
+    -fx-text-fill: #0F4C81;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* =================================
+   SIDEBAR
+   ================================= */
+
+.sidebar {
+    -fx-background-color: #163A5F;
+    -fx-padding: 20;
+}
+
+.user-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* =================================
+   SIDEBAR BUTTON
+   ================================= */
+
+.sidebar-button {
+
+    -fx-background-color: transparent;
+    -fx-text-fill: #EAF4FF;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-alignment: CENTER_LEFT;
+
+    -fx-padding: 12 15;
+
+    -fx-background-radius: 10;
+
+    -fx-cursor: hand;
+}
+
+.sidebar-button:hover {
+
+    -fx-background-color: #245A92;
+}
+
+/* =================================
+   LOGOUT
+   ================================= */
+
+.logout-button {
+
+    -fx-background-color: #E74C3C;
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+.logout-button:hover {
+    -fx-background-color: #C0392B;
+}
+
+/* =================================
+   INPUT
+   ================================= */
+
+.text-field,
+.combo-box {
+
+    -fx-background-color: white;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    -fx-padding: 8;
+}
+
+.text-field:focused,
+.combo-box:focused {
+
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 2;
+}
+
+/* =================================
+   BUTTON
+   ================================= */
+
+.button {
+
+    -fx-background-color: #3B82F6;
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+
+    -fx-background-color: #2563EB;
+}
+
+/* =================================
+   SCROLLPANE
+   ================================= */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* =================================
+   AUCTION CARD
+   ================================= */
+
+.auction-card {
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+
+    -fx-border-color: #E2E8F0;
+
+    -fx-padding: 15;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.08),
+        10,
+        0,
+        0,
+        2
+    );
+}
+
+.auction-card:hover {
+
+    -fx-border-color: #60A5FA;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(59,130,246,0.18),
+        15,
+        0,
+        0,
+        3
+    );
+}
+
+/* =================================
+   CARD CONTENT
+   ================================= */
+
+.card-title {
+
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #1E293B;
+}
+
+.card-price {
+
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+.card-status {
+
+    -fx-font-weight: bold;
+    -fx-text-fill: #10B981;
+}
+
+/* =================================
+   BID BUTTON
+   ================================= */
+
+.bid-button {
+
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8;
+}
+
+.bid-button:hover {
+
+    -fx-background-color: #1D4ED8;
+}
+
+/* =================================
+   SEPARATOR
+   ================================= */
+
+.separator .line {
+
+    -fx-border-color: rgba(255,255,255,0.15);
+}
