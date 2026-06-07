@@ -1,5 +1,6 @@
 package WebSocket;
 
+import Config.ApiConfig;
 import Dto.Response.BidResponse;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.*;
@@ -45,7 +46,7 @@ public class AuctionWebSocketClient {
         );
 
         stompClient.connectAsync(
-                "ws://localhost:8080/ws",
+                ApiConfig.WS_SERVER,
                 new StompSessionHandlerAdapter() {
 
                     @Override
