@@ -6,7 +6,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="View.ProfileController">
+            fx:controller="View.ProfileController1">
 
     <!-- ================= HEADER ================= -->
     <top>

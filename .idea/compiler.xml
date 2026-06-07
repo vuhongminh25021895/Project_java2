@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Client" />
+        <module name="client" />
       </profile>
       <profile name="Annotation profile for Auction Parent POM" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -22,6 +23,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auction" target="1.5" />
+      <module name="Client" target="21" />
+      <module name="Server" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
