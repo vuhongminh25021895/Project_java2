@@ -36,9 +36,8 @@ public class LoginController {
         LoginRequest request = new LoginRequest(username, password);
         AuthRespone loginrespone = authService.login(request);
         clientSession.login(loginrespone.token(), loginrespone.userId(), loginrespone.username(), loginrespone.role());
-
         AlertBox.display(loginrespone.message());
-        username = loginrespone.username();
+        authService.loginSuccess();
     }
 
     @FXML

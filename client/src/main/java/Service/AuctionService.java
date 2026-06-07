@@ -3,6 +3,7 @@ package Service;
 import Config.ApiConfig;
 import Dto.Respone.AuctionCardRespone;
 import Dto.Respone.AuctionDetailRespone;
+import Dto.Respone.AuctionRespone;
 import Dto.Respone.BidRespone;
 import com.google.gson.reflect.TypeToken;
 import okhttp3.Request;
@@ -18,16 +19,20 @@ public class AuctionService extends BaseApiService{
         Request request = new Request.Builder()
                 .url(ApiConfig.AUCTIONS + "/getcards")
                 .build();
-        List<AuctionCardRespone> list = execute(request, new TypeToken<List<AuctionCardRespone>>() {}.getType(), new ArrayList<>());
-        return list;
-
+        return execute(request, new TypeToken<List<AuctionCardRespone>>() {}.getType(), new ArrayList<>());
     }
 
-    public AuctionDetailRespone getDetails(Long auctionid) {
+    public AuctionDetailRespone getDetails(String auctionId) {
         Request request = new Request.Builder()
-                .url(ApiConfig.AUCTION + "/getdetail" + "/" + auctionid)
+                .url(ApiConfig.AUCTIONS + "/getdetail?id=" + auctionId)
                 .build();
         return execute(request, AuctionDetailRespone.class, new AuctionDetailRespone(false, null, null, null, null, null, null, null, null, null, null));
     }
 
+    public List<AuctionCardRespone> getAllMyAuctions(String userId) {
+        Request request = new Request.Builder()
+                .url(ApiConfig.AUCTIONS + "/getcards?id=" + userId)
+                .build();
+        return execute(request, new TypeToken<List<AuctionCardRespone>>() {}.getType(), new ArrayList<>());
+    }
 }

@@ -1,9 +1,14 @@
 package Dto.Respone;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record BidRespone(
-        String currentprice,
+        boolean success,
+
+        String username,
+
+        BigDecimal highestBid,
 
         LocalDateTime startime,
 

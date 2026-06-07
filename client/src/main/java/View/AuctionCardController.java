@@ -29,26 +29,19 @@ public class AuctionCardController {
 
     @FXML private VBox root;
 
-    private AuctionCardRespone auction;
+    private AuctionCardRespone auctionCardRespone;
 
-    public void setAuction(AuctionCardRespone auction) {
-        this.auction = auction;
-        productNameLabel.setText(auction.productName());
-        currentPriceLabel.setText(String.valueOf(auction.currentPrice()));
-        statusLabel.setText(auction.status());
-        loadImage(auction.imageUrl());
-    }
-
-    private void loadImage(String url) {
-        if (url == null || url.isEmpty()) return;
-        Image image = new Image(url, true);
-        productImage.setImage(image);
+    public void setAuction(AuctionCardRespone auctionCardRespone) {
+        this.auctionCardRespone = auctionCardRespone;
+        productNameLabel.setText(auctionCardRespone.productName());
+        currentPriceLabel.setText(String.valueOf(auctionCardRespone.currentPrice()));
+        statusLabel.setText(auctionCardRespone.status());
     }
 
     @FXML
     private void viewDetails() {
         Map<String, Object> data = new HashMap<>();
-        data.put("auctionid", auction.auctionId());
+        data.put("auctionid", auctionCardRespone.auctionId());
         SceneManager.switchTo(SceneName.AUCTION_DETAIL, data);
     }
 }

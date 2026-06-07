@@ -38,13 +38,11 @@ public class AuthService extends BaseApiService {
         return execute(request, AuthRespone.class, new AuthRespone(false, "Connection error", null, null, null, null));
     }
 
-    public void loginSuccess(String username) {
+    public void loginSuccess() {
         PauseTransition pause = new PauseTransition(Duration.seconds(3));
 
         pause.setOnFinished(event -> {
-                Map<String, Object> data = new HashMap<>();
-                data.put("username", username);
-                SceneManager.switchTo(SceneName.AUCTION_LIST, data);
+                SceneManager.switchTo(SceneName.AUCTION_LIST);
         });
 
     }

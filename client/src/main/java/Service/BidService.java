@@ -11,9 +11,9 @@ public class BidService extends BaseApiService{
 
     public BidRespone getBidDetail(String auctionid) {
         Request request = new Request.Builder()
-                .url(ApiConfig.BID + "/detail?=" + auctionid)
+                .url(ApiConfig.BID + "/detail?id=" + auctionid)
                 .build();
-        return execute(request, BidRespone.class, new BidRespone(null, null, null));
+        return execute(request, BidRespone.class, new BidRespone(false, null, null, null, null));
     }
 
     public BidRespone placebid(BidRequest request) {

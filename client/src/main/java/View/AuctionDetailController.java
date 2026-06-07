@@ -66,7 +66,7 @@ public class AuctionDetailController {
     }
 
     private AuctionDetailRespone loadAuctionData() {
-        Long auctionid = SceneManager.getData("auctionid");
+        String auctionid = SceneManager.getData("auctionid");
         AuctionDetailRespone detailRespone = auctionService.getDetails(auctionid);
         if (auctionid == null) {
             AlertBox.display("Auction not found");

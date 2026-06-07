@@ -1,15 +1,14 @@
 package Dto.Respone;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record AuctionCardRespone(
         boolean success,
-        Long auctionId,
-        Long productId,
+        String auctionId,
+        String productId,
         String productName,
-        String imageUrl,
-        Double currentPrice,
-        Double startPrice,
+        BigDecimal currentPrice,
         String status,
         LocalDateTime endTime,
         String sellerName

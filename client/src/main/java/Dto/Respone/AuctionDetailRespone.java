@@ -1,18 +1,19 @@
 package Dto.Respone;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public record AuctionDetailRespone(
         boolean success,
 
-        Long auctionid,
+        String auctionid,
 
         String title,
 
         String description,
 
-        Double currentPrice,
+        BigDecimal currentPrice,
 
         Integer bidCount,
 
