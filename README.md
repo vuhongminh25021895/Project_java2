@@ -119,6 +119,7 @@ mvn clean install -DskipTests
 ```
 
 Nen chay lenh build/install it nhat mot lan truoc khi chay client, vi module `client` co dependency toi module `server`.
+Neu bo qua buoc nay va chay rieng `mvn -pl client javafx:run`, Maven co the bao thieu `auction:server:jar:1.0-SNAPSHOT`.
 
 ### Chay server
 
@@ -133,8 +134,8 @@ Server chay mac dinh tai:
 ```text
 http://localhost:8080
 ```
-
 Dia chi tren dung khi chay client tren cung may voi server.
+
 Neu client chay tren may khac qua Tailscale, dung dia chi Tailscale cua may server:
 
 ```text
@@ -148,6 +149,13 @@ Mo Terminal thu hai:
 ```bash
 AUCTION_SERVER_URL=http://localhost:8080 mvn -pl client javafx:run
 ```
+
+Neu ket noi qua Tailscale:
+
+```bash
+AUCTION_SERVER_URL=http://100.117.129.110:8080 mvn -pl client javafx:run
+```
+
 
 ### Chay client tren Windows PowerShell
 
@@ -205,6 +213,12 @@ Thuc hien theo dung thu tu:
 
    ```bash
    AUCTION_SERVER_URL=http://localhost:8080 mvn -pl client javafx:run
+   ```
+
+   Neu ket noi qua Tailscale:
+
+   ```bash
+   AUCTION_SERVER_URL=http://100.117.129.110:8080 mvn -pl client javafx:run
    ```
 
   Windows PowerShell:
