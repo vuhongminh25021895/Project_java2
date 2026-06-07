@@ -24,11 +24,9 @@ jobs:
           cache: maven
 
       - name: Build and Test
-        working-directory: ./Project_java2        # ← FIX #2
         run: mvn clean package
 
       - name: Checkstyle and Jacoco
-        working-directory: ./Project_java2        # ← FIX #2
         run: mvn verify
 
 
