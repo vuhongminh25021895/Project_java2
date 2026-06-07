@@ -34,10 +34,18 @@ public class LoginController {
         }
 
         LoginRequest request = new LoginRequest(username, password);
-        AuthRespone loginrespone = authService.login(request);
-        clientSession.login(loginrespone.token(), loginrespone.userId(), loginrespone.username(), loginrespone.role());
-        AlertBox.display(loginrespone.message());
-        authService.loginSuccess();
+        AuthRespone loginRespone = authService.login(request);
+        if (loginRespone.success()) {
+            clientSession.login(
+                    loginRespone.token(),
+                    loginRespone.userId(),
+                    loginRespone.username(),
+                    loginRespone.role()
+            );
+            SceneManager.switchTo(SceneName.AUCTION_LIST);
+        } else {
+            AlertBox.display(loginRespone.message());
+        }
     }
 
     @FXML

@@ -22,31 +22,29 @@ public class SceneManager {
 
 
 
-        public static Scene loadScene(SceneName sceneName) {
-            try {
-                String fxmlPath = FXML_BASE + sceneName.name() + ".fxml";
-                System.out.println("Loading FXML: " + fxmlPath); // ← thêm dòng này
-                var url = SceneManager.class.getResource(fxmlPath);
-                System.out.println("Resolved URL: " + url);      // ← null = sai đường dẫn/thiếu file
-                FXMLLoader loader = new FXMLLoader(url);
-                return new Scene(loader.load());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
+    public static Scene loadScene(SceneName sceneName) {
+        try {
+            String fxmlPath = FXML_BASE + sceneName.getFxmlName() + ".fxml";
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
+            return new Scene(loader.load());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
+    }
 
 
     /** Chuyển scene đơn giản */
-    public static void switchTo(SceneName name){
+    // ✅ SceneManager.java — switchTo() dùng getFxmlName()
+    public static void switchTo(SceneName name) {
         try {
-            String fxmlPath = FXML_BASE + name.name().toLowerCase().replace('_', '-') + ".fxml";
+            String fxmlPath = FXML_BASE + name.getFxmlName() + ".fxml";
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
             primaryStage.setScene(new Scene(loader.load()));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            AlertBox.display("Cannot load scene" + name);
+            AlertBox.display("Cannot load scene: " + name);
         }
     }
 

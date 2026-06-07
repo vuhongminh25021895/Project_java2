@@ -1,22 +1,19 @@
 package Scene;
 
+// ✅ SceneName.java
 public enum SceneName {
-    // Xác thực
-    LOGIN,
-    REGISTER,
+    LOGIN("login"),
+    REGISTER("register"),
+    AUCTION_LIST("auctionlist"),
+    AUCTION_CARD("auctioncard"),
+    AUCTION_DETAIL("auctiondetail"),
+    BIDDING("bidding"),
+    DEPOSIT("deposit"),
+    MY_AUCTIONS("myauctions"),
+    PRODUCT_PUBLISHING("productpublishing"),
+    PROFILE("profile");
 
-    // Đấu giá
-    AUCTION_LIST,
-    AUCTION_DETAIL,       // Xem chi tiết phiên trước khi tham gia
-    BIDDING,
-    BID_HISTORY,          // Lịch sử đặt giá của user trong 1 phiên
-
-    // Đăng bán
-    PRODUCT_PUBLISHING,
-    MY_AUCTIONS,          // Quản lý phiên đấu giá của bản thân
-
-    // Tài khoản & tài chính
-    PROFILE,
-    DEPOSIT,
-    TRANSACTION_HISTORY   // Lịch sử nạp tiền / thanh toán
+    private final String fxmlName;
+    SceneName(String fxmlName) { this.fxmlName = fxmlName; }
+    public String getFxmlName() { return fxmlName; }
 }

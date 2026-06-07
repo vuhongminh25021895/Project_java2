@@ -35,11 +35,8 @@ public class AuthService {
 
     @Transactional
     public AuthRespone login(LoginRequest request) {
-        if (userRepository.existsByUserName(request.username())) {
-            return new AuthRespone(false, "Username already exists", null, null, null, null);
-        }
         User user = userRepository.findByUserName(request.username());
-        if (user == null || !passwordEncoder.matches(request.password(), passwordEncoder.encode(user.getPassword()))) {
+        if (user == null || !passwordEncoder.matches(request.password(), user.getPassword())) {
             return new AuthRespone(false, "Invalid username or password", null, null, null, null);
         }
         String token = jwtService.createToken(user.getId(), user.getRole());

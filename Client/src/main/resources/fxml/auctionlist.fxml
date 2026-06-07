@@ -44,8 +44,7 @@
                       promptText="Trạng thái"
                       prefWidth="150"/>
 
-            <Button text="Tìm"
-                    onAction="#searchAuction"/>
+            <Button text="Tìm"/>
         </HBox>
     </top>
 
@@ -89,7 +88,7 @@
             <Button text="Đăng sản phẩm"
                     styleClass="sidebar-button"
                     maxWidth="Infinity"
-                    onAction="#productPublishingSwitch"/>
+                    />
 
             <Region VBox.vgrow="ALWAYS"/>
 
