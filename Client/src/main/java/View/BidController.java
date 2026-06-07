@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 
 public class BidController {
 
@@ -37,7 +40,7 @@ public class BidController {
     @FXML
     public void placeBid() {
         String auctionId = SceneManager.getData("auctionId");
-        BidRequest bidRequest = new BidRequest(auctionId, Double.parseDouble(bidAmountField.getText()));
+        BidRequest bidRequest = new BidRequest(auctionId, BigDecimal.valueOf(Double.parseDouble(bidAmountField.getText())), LocalDateTime.now());
         BidResponse respone = bidService.placebid(bidRequest);
         if(respone.success()) {
             bidAmountField.setText(String.valueOf(respone.highestBid()));
