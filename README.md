@@ -101,7 +101,7 @@ Neu dung XAMPP, co the tao database `Bidding_database` bang phpMyAdmin. Cac bang
 Tat ca lenh duoi day chay tai thu muc goc project:
 
 ```bash
-cd Real-Final
+cd main
 ```
 
 ### Build va install toan bo project
